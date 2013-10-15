@@ -1,18 +1,18 @@
 //
-//  FirstViewController.m
+//  SecondViewController.m
 //  Pokémon Types
 //
 //  Created by Andrew Clissold on 10/10/13.
 //  Copyright (c) 2013 Andrew Clissold. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "ChartViewController.h"
 
-@interface FirstViewController ()
+@interface ChartViewController ()
 
 @end
 
-@implementation FirstViewController
+@implementation ChartViewController
 
 - (void)viewDidLoad
 {

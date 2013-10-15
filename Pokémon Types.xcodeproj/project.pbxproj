@@ -15,14 +15,15 @@
 		224C29B71807A4E800960D03 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 224C29B61807A4E800960D03 /* AppDelegate.m */; };
 		224C29BA1807A4E800960D03 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224C29B81807A4E800960D03 /* Main_iPhone.storyboard */; };
 		224C29BD1807A4E800960D03 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224C29BB1807A4E800960D03 /* Main_iPad.storyboard */; };
-		224C29C01807A4E800960D03 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224C29BF1807A4E800960D03 /* FirstViewController.m */; };
-		224C29C31807A4E800960D03 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224C29C21807A4E800960D03 /* SecondViewController.m */; };
+		224C29C01807A4E800960D03 /* QuickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224C29BF1807A4E800960D03 /* QuickViewController.m */; };
+		224C29C31807A4E800960D03 /* ChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224C29C21807A4E800960D03 /* ChartViewController.m */; };
 		224C29C51807A4E800960D03 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 224C29C41807A4E800960D03 /* Images.xcassets */; };
 		224C29CC1807A4E800960D03 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224C29CB1807A4E800960D03 /* XCTest.framework */; };
 		224C29CD1807A4E800960D03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224C29A61807A4E800960D03 /* Foundation.framework */; };
 		224C29CE1807A4E800960D03 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224C29AA1807A4E800960D03 /* UIKit.framework */; };
 		224C29D61807A4E800960D03 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 224C29D41807A4E800960D03 /* InfoPlist.strings */; };
 		224C29D81807A4E800960D03 /* Poke_mon_TypesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 224C29D71807A4E800960D03 /* Poke_mon_TypesTests.m */; };
+		224C29E31807A74900960D03 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224C29E21807A74900960D03 /* ListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,16 +49,18 @@
 		224C29B61807A4E800960D03 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		224C29B91807A4E800960D03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		224C29BC1807A4E800960D03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		224C29BE1807A4E800960D03 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		224C29BF1807A4E800960D03 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		224C29C11807A4E800960D03 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		224C29C21807A4E800960D03 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		224C29BE1807A4E800960D03 /* QuickViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickViewController.h; sourceTree = "<group>"; };
+		224C29BF1807A4E800960D03 /* QuickViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickViewController.m; sourceTree = "<group>"; };
+		224C29C11807A4E800960D03 /* ChartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartViewController.h; sourceTree = "<group>"; };
+		224C29C21807A4E800960D03 /* ChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartViewController.m; sourceTree = "<group>"; };
 		224C29C41807A4E800960D03 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		224C29CA1807A4E800960D03 /* Pokémon TypesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pokémon TypesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		224C29CB1807A4E800960D03 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		224C29D31807A4E800960D03 /* Pokémon TypesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pokémon TypesTests-Info.plist"; sourceTree = "<group>"; };
 		224C29D51807A4E800960D03 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		224C29D71807A4E800960D03 /* Poke_mon_TypesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Poke_mon_TypesTests.m; sourceTree = "<group>"; };
+		224C29E11807A74900960D03 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		224C29E21807A74900960D03 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,10 +124,12 @@
 				224C29B61807A4E800960D03 /* AppDelegate.m */,
 				224C29B81807A4E800960D03 /* Main_iPhone.storyboard */,
 				224C29BB1807A4E800960D03 /* Main_iPad.storyboard */,
-				224C29BE1807A4E800960D03 /* FirstViewController.h */,
-				224C29BF1807A4E800960D03 /* FirstViewController.m */,
-				224C29C11807A4E800960D03 /* SecondViewController.h */,
-				224C29C21807A4E800960D03 /* SecondViewController.m */,
+				224C29BE1807A4E800960D03 /* QuickViewController.h */,
+				224C29BF1807A4E800960D03 /* QuickViewController.m */,
+				224C29C11807A4E800960D03 /* ChartViewController.h */,
+				224C29C21807A4E800960D03 /* ChartViewController.m */,
+				224C29E11807A74900960D03 /* ListViewController.h */,
+				224C29E21807A74900960D03 /* ListViewController.m */,
 				224C29C41807A4E800960D03 /* Images.xcassets */,
 				224C29AD1807A4E800960D03 /* Supporting Files */,
 			);
@@ -207,6 +212,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Andrew Clissold";
 				TargetAttributes = {
+					224C29A21807A4E800960D03 = {
+						DevelopmentTeam = DVS6NR923Y;
+					};
 					224C29C91807A4E800960D03 = {
 						TestTargetID = 224C29A21807A4E800960D03;
 					};
@@ -258,9 +266,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				224C29C31807A4E800960D03 /* SecondViewController.m in Sources */,
+				224C29C31807A4E800960D03 /* ChartViewController.m in Sources */,
+				224C29E31807A74900960D03 /* ListViewController.m in Sources */,
 				224C29B71807A4E800960D03 /* AppDelegate.m in Sources */,
-				224C29C01807A4E800960D03 /* FirstViewController.m in Sources */,
+				224C29C01807A4E800960D03 /* QuickViewController.m in Sources */,
 				224C29B31807A4E800960D03 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,6 +407,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pokémon Types/Pokémon Types-Prefix.pch";
 				INFOPLIST_FILE = "Pokémon Types/Pokémon Types-Info.plist";
@@ -411,6 +421,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pokémon Types/Pokémon Types-Prefix.pch";
 				INFOPLIST_FILE = "Pokémon Types/Pokémon Types-Info.plist";
@@ -480,6 +491,7 @@
 				224C29DD1807A4E900960D03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		224C29DE1807A4E900960D03 /* Build configuration list for PBXNativeTarget "Pokémon TypesTests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +500,7 @@
 				224C29E01807A4E900960D03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

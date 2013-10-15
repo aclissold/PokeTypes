@@ -1,18 +1,18 @@
 //
-//  SecondViewController.m
+//  ThirdViewController.m
 //  Pokémon Types
 //
 //  Created by Andrew Clissold on 10/10/13.
 //  Copyright (c) 2013 Andrew Clissold. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "ListViewController.h"
 
-@interface SecondViewController ()
+@interface ListViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation ListViewController
 
 - (void)viewDidLoad
 {
