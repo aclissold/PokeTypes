@@ -12,8 +12,9 @@
     IBOutlet UIPickerView *firstPickerView;
     IBOutlet UIPickerView *secondPickerView;
     IBOutlet UILabel *label;
+    int typeMatchups[18][18];
 }
 
-@property (nonatomic) NSArray *typesArray;
+@property (nonatomic) NSDictionary *typesDict;
 
 @end
