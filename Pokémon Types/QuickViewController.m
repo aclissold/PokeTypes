@@ -70,6 +70,7 @@ enum types {
                        };
     
     // Bug attack type
+    typeMatchups[bug][bug]      = normallyEffective;
     typeMatchups[bug][dark]     = superEffective;
     typeMatchups[bug][dragon]   = normallyEffective;
     typeMatchups[bug][electric] = normallyEffective;
@@ -87,6 +88,66 @@ enum types {
     typeMatchups[bug][rock]     = normallyEffective;
     typeMatchups[bug][steel]    = notVeryEffective;
     typeMatchups[bug][water]    = normallyEffective;
+    
+    // Dark attack type
+    typeMatchups[dark][bug]      = normallyEffective;
+    typeMatchups[dark][dark]     = notVeryEffective;
+    typeMatchups[dark][dragon]   = normallyEffective;
+    typeMatchups[dark][electric] = normallyEffective;
+    typeMatchups[dark][fairy]    = notVeryEffective;
+    typeMatchups[dark][fighting] = notVeryEffective;
+    typeMatchups[dark][fire]     = normallyEffective;
+    typeMatchups[dark][flying]   = normallyEffective;
+    typeMatchups[dark][ghost]    = superEffective;
+    typeMatchups[dark][grass]    = normallyEffective;
+    typeMatchups[dark][ground]   = normallyEffective;
+    typeMatchups[dark][ice]      = normallyEffective;
+    typeMatchups[dark][norm]     = normallyEffective;
+    typeMatchups[dark][poison]   = normallyEffective;
+    typeMatchups[dark][psychic]  = superEffective;
+    typeMatchups[dark][rock]     = normallyEffective;
+    typeMatchups[dark][steel]    = normallyEffective;
+    typeMatchups[dark][water]    = normallyEffective;
+
+    // Dragon attack type
+    typeMatchups[dragon][bug]      = normallyEffective;
+    typeMatchups[dragon][dark]     = normallyEffective;
+    typeMatchups[dragon][dragon]   = superEffective;
+    typeMatchups[dragon][electric] = normallyEffective;
+    typeMatchups[dragon][fairy]    = noEffect;
+    typeMatchups[dragon][fighting] = normallyEffective;
+    typeMatchups[dragon][fire]     = normallyEffective;
+    typeMatchups[dragon][flying]   = normallyEffective;
+    typeMatchups[dragon][ghost]    = normallyEffective;
+    typeMatchups[dragon][grass]    = normallyEffective;
+    typeMatchups[dragon][ground]   = normallyEffective;
+    typeMatchups[dragon][ice]      = normallyEffective;
+    typeMatchups[dragon][norm]     = normallyEffective;
+    typeMatchups[dragon][poison]   = normallyEffective;
+    typeMatchups[dragon][psychic]  = normallyEffective;
+    typeMatchups[dragon][rock]     = normallyEffective;
+    typeMatchups[dragon][steel]    = notVeryEffective;
+    typeMatchups[dragon][water]    = normallyEffective;
+    
+    // Electric attack type
+    typeMatchups[electric][bug]      = normallyEffective;
+    typeMatchups[electric][dark]     = normallyEffective;
+    typeMatchups[electric][dragon]   = notVeryEffective;
+    typeMatchups[electric][electric] = notVeryEffective;
+    typeMatchups[electric][fairy]    = normallyEffective;
+    typeMatchups[electric][fighting] = normallyEffective;
+    typeMatchups[electric][fire]     = normallyEffective;
+    typeMatchups[electric][flying]   = superEffective;
+    typeMatchups[electric][ghost]    = normallyEffective;
+    typeMatchups[electric][grass]    = notVeryEffective;
+    typeMatchups[electric][ground]   = noEffect;
+    typeMatchups[electric][ice]      = normallyEffective;
+    typeMatchups[electric][norm]     = normallyEffective;
+    typeMatchups[electric][poison]   = normallyEffective;
+    typeMatchups[electric][psychic]  = normallyEffective;
+    typeMatchups[electric][rock]     = normallyEffective;
+    typeMatchups[electric][steel]    = normallyEffective;
+    typeMatchups[electric][water]    = superEffective;
 }
 
 - (NSInteger) numberOfComponentsInPickerView:(UIPickerView *)pickerView {
@@ -105,13 +166,13 @@ enum types {
     int effectiveness = typeMatchups[[firstPickerView selectedRowInComponent:0]][[secondPickerView selectedRowInComponent:0]];
     switch (effectiveness) {
         case noEffect:
-            label.text = @"Has no effect";
+            label.text = @"Has no effect.";
             break;
         case notVeryEffective:
             label.text = @"It's not very effective...";
             break;
         case normallyEffective:
-            label.text = @"Normally effective";
+            label.text = @"Normally effective.";
             break;
         case superEffective:
             label.text = @"It's super effective!";
