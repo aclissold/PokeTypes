@@ -154,7 +154,7 @@ enum types {
     // Fairy attack type
     typeMatchups[fairy][bug]      = normallyEffective;
     typeMatchups[fairy][dark]     = superEffective;
-    typeMatchups[fairy][dragon]   = superEffective
+    typeMatchups[fairy][dragon]   = superEffective;
     typeMatchups[fairy][electric] = normallyEffective;
     typeMatchups[fairy][fairy]    = normallyEffective;
     typeMatchups[fairy][fighting] = superEffective;
@@ -441,7 +441,7 @@ enum types {
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [self.typesDict objectForKey:[NSNumber numberWithInt:row]];
+    return [self.typesDict objectForKey:[NSNumber numberWithLong:row]];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
