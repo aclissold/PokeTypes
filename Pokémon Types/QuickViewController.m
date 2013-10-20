@@ -6,11 +6,9 @@
 //  Copyright (c) 2013 Andrew Clissold. All rights reserved.
 //
 
-#import <QuartzCore/QuartzCore.h>
 #import "QuickViewController.h"
 #include <stdlib.h>
 
-#define ANIMATION_DURATION 1
 #define ALPHA 0.4
 
 @interface QuickViewController ()
@@ -513,15 +511,6 @@ enum types {
                        (id)[[UIColor colorWithRed:reds[bug] green:greens[bug] blue:blues[bug] alpha:ALPHA] CGColor],
                        (id)[[UIColor colorWithRed:reds[bug] green:greens[bug] blue:blues[bug] alpha:ALPHA] CGColor], nil];
     [self.view.layer insertSublayer:gradient atIndex:3];
-    clearGradient = [CAGradientLayer layer];
-    clearGradient.frame = self.view.bounds;
-    clearGradient.colors = @[(id)[[UIColor clearColor] CGColor]];
-    [self.view.layer insertSublayer:clearGradient atIndex:4];
-    newGradientCopy = [CAGradientLayer layer];
-    newGradientCopy.frame = self.view.bounds;
-    clearGradient = [CAGradientLayer layer];
-    clearGradient.frame = self.view.bounds;
-    clearGradient.colors = @[(id)[[UIColor clearColor] CGColor]];
     
     // Make the labels sideways
     attackTypeLabel.transform = CGAffineTransformMakeRotation(3 * M_PI_2);
@@ -562,34 +551,10 @@ enum types {
             break;
     }
     
-    CAGradientLayer *newGradient = [CAGradientLayer layer];
-    newGradient.frame = self.view.bounds;
-    newGradient.colors = [NSArray arrayWithObjects:
+    gradient.colors = [NSArray arrayWithObjects:
                           (id)[[UIColor colorWithRed:reds[firstSelectedRow] green:greens[firstSelectedRow] blue:blues[firstSelectedRow] alpha:ALPHA] CGColor],
                           (id)[[UIColor colorWithRed:reds[secondSelectedRow] green:greens[secondSelectedRow] blue:blues[secondSelectedRow] alpha:ALPHA] CGColor], nil];
-    
-    CABasicAnimation *fadeIn = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    fadeIn.duration = ANIMATION_DURATION;
-    fadeIn.fromValue = [NSNumber numberWithFloat:0.0];
-    fadeIn.toValue = [NSNumber numberWithFloat:1.0];
-    CABasicAnimation *fadeOut = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    fadeOut.delegate = self;
-    fadeOut.duration = ANIMATION_DURATION;
-    fadeOut.fromValue = [NSNumber numberWithFloat:1.0];
-    fadeOut.toValue = [NSNumber numberWithFloat:0.0];
-    newGradientCopy.colors = [NSArray arrayWithObjects:
-                              (id)[[UIColor colorWithRed:reds[firstSelectedRow] green:greens[firstSelectedRow] blue:blues[firstSelectedRow] alpha:ALPHA] CGColor],
-                              (id)[[UIColor colorWithRed:reds[secondSelectedRow] green:greens[secondSelectedRow] blue:blues[secondSelectedRow] alpha:ALPHA] CGColor], nil];
-    [self.view.layer replaceSublayer:[[self.view.layer sublayers] objectAtIndex:4] with:newGradient];
-    tempLayer = [[self.view.layer sublayers] objectAtIndex:3];
-    [tempLayer addAnimation:fadeOut forKey:@"animateOpacity"];
-    [[[self.view.layer sublayers] objectAtIndex:4] addAnimation:fadeIn forKey:@"animateOpacity"];
-}
-
-- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
-    [self.view.layer replaceSublayer:tempLayer with:newGradientCopy];
-    [self.view.layer replaceSublayer:[[self.view.layer sublayers] objectAtIndex:4] with:clearGradient];
-}
+    }
 
 - (void)didReceiveMemoryWarning
 {
