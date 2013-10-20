@@ -50,7 +50,7 @@
 		224C29B91807A4E800960D03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		224C29BC1807A4E800960D03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		224C29BE1807A4E800960D03 /* QuickViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickViewController.h; sourceTree = "<group>"; };
-		224C29BF1807A4E800960D03 /* QuickViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickViewController.m; sourceTree = "<group>"; };
+		224C29BF1807A4E800960D03 /* QuickViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = QuickViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		224C29C11807A4E800960D03 /* ChartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartViewController.h; sourceTree = "<group>"; };
 		224C29C21807A4E800960D03 /* ChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartViewController.m; sourceTree = "<group>"; };
 		224C29C41807A4E800960D03 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -68,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				228348951810A9C70007D024 /* QuartzCore.framework in Frameworks */,
 				224C29A91807A4E800960D03 /* CoreGraphics.framework in Frameworks */,
 				224C29AB1807A4E800960D03 /* UIKit.framework in Frameworks */,
 				224C29A71807A4E800960D03 /* Foundation.framework in Frameworks */,
@@ -109,6 +110,7 @@
 		224C29A51807A4E800960D03 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				228348941810A9C70007D024 /* QuartzCore.framework */,
 				224C29A61807A4E800960D03 /* Foundation.framework */,
 				224C29A81807A4E800960D03 /* CoreGraphics.framework */,
 				224C29AA1807A4E800960D03 /* UIKit.framework */,

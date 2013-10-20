@@ -6,8 +6,12 @@
 //  Copyright (c) 2013 Andrew Clissold. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "QuickViewController.h"
 #include <stdlib.h>
+
+#define ANIMATION_DURATION 1
+#define ALPHA 0.4
 
 @interface QuickViewController ()
 
@@ -48,7 +52,7 @@ enum types {
 {
     [super viewDidLoad];
     
-    self.typesDict = @{
+    typesDict = @{
                        [NSNumber numberWithInt:bug]:      @"Bug",
                        [NSNumber numberWithInt:dark]:     @"Dark",
                        [NSNumber numberWithInt:dragon]:   @"Dragon",
@@ -70,7 +74,7 @@ enum types {
                        };
     
     // TODO: Comment-out the redundant normallyEffective assignments
-    
+    // TODO: Refactor this to a different file altogether
     // Bug attack type
     typeMatchups[bug][bug]      = normallyEffective;
     typeMatchups[bug][dark]     = superEffective;
@@ -430,6 +434,98 @@ enum types {
     typeMatchups[water][rock]     = superEffective;
     typeMatchups[water][steel]    = normallyEffective;
     typeMatchups[water][water]    = notVeryEffective;
+    
+    reds[bug] = 184/255.0;
+    greens[bug] = 202/255.0;
+    blues[bug] = 32/255.0;
+    
+    reds[dark] = 130/255.0;
+    greens[dark] = 105/255.0;
+    blues[dark] = 89/255.0;
+
+    reds[dragon] = 112/255.0;
+    greens[dragon] = 56/255.0;
+    blues[dragon] = 248/255.0;
+    
+    reds[electric] = 248/255.0;
+    greens[electric] = 208/255.0;
+    blues[electric] = 48/255.0;
+    
+    reds[fairy] = 255/255.0;
+    greens[fairy] = 219/255.0;
+    blues[fairy] = 255/255.0;
+    
+    reds[fighting] = 192/255.0;
+    greens[fighting] = 48/255.0;
+    blues[fighting] = 40/255.0;
+    
+    reds[fire] = 240/255.0;
+    greens[fire] = 128/255.0;
+    blues[fire] = 48/255.0;
+    
+    reds[flying] = 179/255.0;
+    greens[flying] = 157/255.0;
+    blues[flying] = 247/255.0;
+    
+    reds[ghost] = 128/255.0;
+    greens[ghost] = 104/255.0;
+    blues[ghost] = 169/255.0;
+    
+    reds[grass] = 80/255.0;
+    greens[grass] = 184/255.0;
+    blues[grass] = 59/255.0;
+    
+    reds[ground] = 224/255.0;
+    greens[ground] = 189/255.0;
+    blues[ground] = 104/255.0;
+    
+    reds[ice] = 152/255.0;
+    greens[ice] = 216/255.0;
+    blues[ice] = 216/255.0;
+    
+    reds[norm] = 193/255.0;
+    greens[norm] = 193/255.0;
+    blues[norm] = 167/255.0;
+    
+    reds[poison] = 160/255.0;
+    greens[poison] = 64/255.0;
+    blues[poison] = 160/255.0;
+    
+    reds[psychic] = 248/255.0;
+    greens[psychic] = 88/255.0;
+    blues[psychic] = 136/255.0;
+    
+    reds[rock] = 192/255.0;
+    greens[rock] = 145/255.0;
+    blues[rock] = 64/255.0;
+    
+    reds[steel] = 186/255.0;
+    greens[steel] = 186/255.0;
+    blues[steel] = 191/255.0;
+    
+    reds[water] = 104/255.0;
+    greens[water] = 144/255.0;
+    blues[water] = 240/255.0;
+    
+    gradient = [CAGradientLayer layer];
+    gradient.frame = self.view.bounds;
+    gradient.colors = [NSArray arrayWithObjects:
+                       (id)[[UIColor colorWithRed:reds[bug] green:greens[bug] blue:blues[bug] alpha:ALPHA] CGColor],
+                       (id)[[UIColor colorWithRed:reds[bug] green:greens[bug] blue:blues[bug] alpha:ALPHA] CGColor], nil];
+    [self.view.layer insertSublayer:gradient atIndex:3];
+    clearGradient = [CAGradientLayer layer];
+    clearGradient.frame = self.view.bounds;
+    clearGradient.colors = @[(id)[[UIColor clearColor] CGColor]];
+    [self.view.layer insertSublayer:clearGradient atIndex:4];
+    newGradientCopy = [CAGradientLayer layer];
+    newGradientCopy.frame = self.view.bounds;
+    clearGradient = [CAGradientLayer layer];
+    clearGradient.frame = self.view.bounds;
+    clearGradient.colors = @[(id)[[UIColor clearColor] CGColor]];
+    
+    // Make the labels sideways
+    attackTypeLabel.transform = CGAffineTransformMakeRotation(3 * M_PI_2);
+    opposingTypeLabel.transform = CGAffineTransformMakeRotation(3 * M_PI_2);
 }
 
 - (NSInteger) numberOfComponentsInPickerView:(UIPickerView *)pickerView {
@@ -437,15 +533,18 @@ enum types {
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return [self.typesDict count];
+    return [typesDict count];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [self.typesDict objectForKey:[NSNumber numberWithLong:row]];
+    return [typesDict objectForKey:[NSNumber numberWithLong:row]];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    int effectiveness = typeMatchups[[firstPickerView selectedRowInComponent:0]][[secondPickerView selectedRowInComponent:0]];
+    firstSelectedRow  = [firstPickerView selectedRowInComponent:0];
+    secondSelectedRow = [secondPickerView selectedRowInComponent:0];
+    int effectiveness     = typeMatchups[firstSelectedRow][secondSelectedRow];
+    
     switch (effectiveness) {
         case noEffect:
             label.text = @"Has no effect.";
@@ -462,6 +561,34 @@ enum types {
         default:
             break;
     }
+    
+    CAGradientLayer *newGradient = [CAGradientLayer layer];
+    newGradient.frame = self.view.bounds;
+    newGradient.colors = [NSArray arrayWithObjects:
+                          (id)[[UIColor colorWithRed:reds[firstSelectedRow] green:greens[firstSelectedRow] blue:blues[firstSelectedRow] alpha:ALPHA] CGColor],
+                          (id)[[UIColor colorWithRed:reds[secondSelectedRow] green:greens[secondSelectedRow] blue:blues[secondSelectedRow] alpha:ALPHA] CGColor], nil];
+    
+    CABasicAnimation *fadeIn = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    fadeIn.duration = ANIMATION_DURATION;
+    fadeIn.fromValue = [NSNumber numberWithFloat:0.0];
+    fadeIn.toValue = [NSNumber numberWithFloat:1.0];
+    CABasicAnimation *fadeOut = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    fadeOut.delegate = self;
+    fadeOut.duration = ANIMATION_DURATION;
+    fadeOut.fromValue = [NSNumber numberWithFloat:1.0];
+    fadeOut.toValue = [NSNumber numberWithFloat:0.0];
+    newGradientCopy.colors = [NSArray arrayWithObjects:
+                              (id)[[UIColor colorWithRed:reds[firstSelectedRow] green:greens[firstSelectedRow] blue:blues[firstSelectedRow] alpha:ALPHA] CGColor],
+                              (id)[[UIColor colorWithRed:reds[secondSelectedRow] green:greens[secondSelectedRow] blue:blues[secondSelectedRow] alpha:ALPHA] CGColor], nil];
+    [self.view.layer replaceSublayer:[[self.view.layer sublayers] objectAtIndex:4] with:newGradient];
+    tempLayer = [[self.view.layer sublayers] objectAtIndex:3];
+    [tempLayer addAnimation:fadeOut forKey:@"animateOpacity"];
+    [[[self.view.layer sublayers] objectAtIndex:4] addAnimation:fadeIn forKey:@"animateOpacity"];
+}
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    [self.view.layer replaceSublayer:tempLayer with:newGradientCopy];
+    [self.view.layer replaceSublayer:[[self.view.layer sublayers] objectAtIndex:4] with:clearGradient];
 }
 
 - (void)didReceiveMemoryWarning
