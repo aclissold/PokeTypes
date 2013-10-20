@@ -9,7 +9,7 @@
 #import "QuickViewController.h"
 #include <stdlib.h>
 
-#define ALPHA 0.4
+#define ALPHA 0.7
 
 @interface QuickViewController ()
 
@@ -450,7 +450,7 @@ enum types {
     blues[electric] = 48/255.0;
     
     reds[fairy] = 255/255.0;
-    greens[fairy] = 219/255.0;
+    greens[fairy] = 200/255.0;
     blues[fairy] = 255/255.0;
     
     reds[fighting] = 192/255.0;
@@ -510,7 +510,7 @@ enum types {
     gradient.colors = [NSArray arrayWithObjects:
                        (id)[[UIColor colorWithRed:reds[bug] green:greens[bug] blue:blues[bug] alpha:ALPHA] CGColor],
                        (id)[[UIColor colorWithRed:reds[bug] green:greens[bug] blue:blues[bug] alpha:ALPHA] CGColor], nil];
-    [self.view.layer insertSublayer:gradient atIndex:3];
+    [self.view.layer insertSublayer:gradient atIndex:0];
     
     // Make the labels sideways
     attackTypeLabel.transform = CGAffineTransformMakeRotation(3 * M_PI_2);
