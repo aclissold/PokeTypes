@@ -8,7 +8,9 @@
 
 #import "ListViewController.h"
 
-@interface ListViewController ()
+@interface ListViewController () {
+    NSArray *pokemon;
+}
 
 @end
 
@@ -17,7 +19,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
+    pokemon = @[@"Alakazam", @"Beedril", @"Combee", @"Drapion",
+                @"Etc."];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [pokemon count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    cell.textLabel.text = [pokemon objectAtIndex:(long)indexPath.row];
+    return cell;
 }
 
 - (void)didReceiveMemoryWarning

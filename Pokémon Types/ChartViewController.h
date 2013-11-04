@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ChartViewController : UIViewController
+@interface ChartViewController : UIViewController <UIScrollViewDelegate> {
+    BOOL *zoomedIn;
+}
+
+@property (nonatomic, retain) IBOutlet UIScrollView *imageScrollView;
+@property (nonatomic, retain) IBOutlet UIImageView *imageView;
 
 @end
