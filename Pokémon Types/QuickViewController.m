@@ -14,9 +14,27 @@
 
 @interface QuickViewController ()
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *opposingTypeLabelBottomConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *secondPickerViewBottomConstraint;
+
 @end
 
 @implementation QuickViewController
+
+const CGFloat kPickerConstraintSize = -10.0;
+const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
+
+// This method is a workaround for an iOS 7 bug that prevents subview positions from persisting in a tab bar controller.
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    if (self.bottomLayoutGuide.length == 0.0) {
+        self.opposingTypeLabelBottomConstraint.constant = kOpposingTypeLabelConstraintSize + 49.0;
+        self.secondPickerViewBottomConstraint.constant = kPickerConstraintSize + 49.0;
+    } else {
+        self.opposingTypeLabelBottomConstraint.constant = kOpposingTypeLabelConstraintSize;
+        self.secondPickerViewBottomConstraint.constant = kPickerConstraintSize;
+    }
+}
 
 - (void)viewDidLoad
 {
