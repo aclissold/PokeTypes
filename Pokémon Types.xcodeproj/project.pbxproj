@@ -24,6 +24,7 @@
 		224C29D61807A4E800960D03 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 224C29D41807A4E800960D03 /* InfoPlist.strings */; };
 		224C29D81807A4E800960D03 /* Poke_mon_TypesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 224C29D71807A4E800960D03 /* Poke_mon_TypesTests.m */; };
 		224C29E31807A74900960D03 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224C29E21807A74900960D03 /* ListViewController.m */; };
+		229685A31842923F008F9D40 /* PickerRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229685A21842923F008F9D40 /* PickerRowView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		224C29D71807A4E800960D03 /* Poke_mon_TypesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Poke_mon_TypesTests.m; sourceTree = "<group>"; };
 		224C29E11807A74900960D03 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		224C29E21807A74900960D03 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		229685A11842923F008F9D40 /* PickerRowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerRowView.h; sourceTree = "<group>"; };
+		229685A21842923F008F9D40 /* PickerRowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerRowView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,8 @@
 				224C29B61807A4E800960D03 /* AppDelegate.m */,
 				224C29B81807A4E800960D03 /* Main_iPhone.storyboard */,
 				224C29BB1807A4E800960D03 /* Main_iPad.storyboard */,
+				229685A11842923F008F9D40 /* PickerRowView.h */,
+				229685A21842923F008F9D40 /* PickerRowView.m */,
 				222BD08D182746E4009A77B9 /* PokeBallFactory.h */,
 				222BD08E182746E4009A77B9 /* PokeBallFactory.m */,
 				224C29BE1807A4E800960D03 /* QuickViewController.h */,
@@ -267,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				229685A31842923F008F9D40 /* PickerRowView.m in Sources */,
 				224C29C31807A4E800960D03 /* ChartViewController.m in Sources */,
 				224C29E31807A74900960D03 /* ListViewController.m in Sources */,
 				222BD08F182746E4009A77B9 /* PokeBallFactory.m in Sources */,

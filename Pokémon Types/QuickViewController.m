@@ -8,7 +8,7 @@
 
 #import "PokeBallFactory.h"
 #import "QuickViewController.h"
-#include <stdlib.h>
+#import "PickerRowView.h"
 
 #define ALPHA 0.7
 
@@ -64,8 +64,10 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
     return [typesDict count];
 }
 
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [typesDict objectForKey:[NSNumber numberWithLong:row]];
+// The images are instantiated directly within this method as a workaround for a display bug
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
+    NSString *type = [typesDict objectForKey:[NSNumber numberWithLong:row]];
+    return [[PickerRowView alloc] initWithTitle:type image:[UIImage imageNamed:type]];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {

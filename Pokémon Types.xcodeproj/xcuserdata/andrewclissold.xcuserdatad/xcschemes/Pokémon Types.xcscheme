@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "224C29A21807A4E800960D03"
-               BuildableName = "Poke&#769;mon Types.app"
-               BlueprintName = "Poke&#769;mon Types"
-               ReferencedContainer = "container:Poke&#769;mon Types.xcodeproj">
+               BuildableName = "Poke&#x301;mon Types.app"
+               BlueprintName = "Poke&#x301;mon Types"
+               ReferencedContainer = "container:Poke&#x301;mon Types.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "224C29C91807A4E800960D03"
-               BuildableName = "Poke&#769;mon TypesTests.xctest"
-               BlueprintName = "Poke&#769;mon TypesTests"
-               ReferencedContainer = "container:Poke&#769;mon Types.xcodeproj">
+               BuildableName = "Poke&#x301;mon TypesTests.xctest"
+               BlueprintName = "Poke&#x301;mon TypesTests"
+               ReferencedContainer = "container:Poke&#x301;mon Types.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "224C29A21807A4E800960D03"
-            BuildableName = "Poke&#769;mon Types.app"
-            BlueprintName = "Poke&#769;mon Types"
-            ReferencedContainer = "container:Poke&#769;mon Types.xcodeproj">
+            BuildableName = "Poke&#x301;mon Types.app"
+            BlueprintName = "Poke&#x301;mon Types"
+            ReferencedContainer = "container:Poke&#x301;mon Types.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "224C29A21807A4E800960D03"
-            BuildableName = "Poke&#769;mon Types.app"
-            BlueprintName = "Poke&#769;mon Types"
-            ReferencedContainer = "container:Poke&#769;mon Types.xcodeproj">
+            BuildableName = "Poke&#x301;mon Types.app"
+            BlueprintName = "Poke&#x301;mon Types"
+            ReferencedContainer = "container:Poke&#x301;mon Types.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "224C29A21807A4E800960D03"
-            BuildableName = "Poke&#769;mon Types.app"
-            BlueprintName = "Poke&#769;mon Types"
-            ReferencedContainer = "container:Poke&#769;mon Types.xcodeproj">
+            BuildableName = "Poke&#x301;mon Types.app"
+            BlueprintName = "Poke&#x301;mon Types"
+            ReferencedContainer = "container:Poke&#x301;mon Types.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
