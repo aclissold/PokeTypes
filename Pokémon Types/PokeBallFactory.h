@@ -39,8 +39,8 @@ enum effectiveness {
 
 @interface PokeBallFactory : NSObject
 
-+ (NSDictionary *) typesDictMake;
-+ (void) instantiateTypeMatchups:(int[18][18]) typeMatchups;
-+ (void) instantiateReds:(CGFloat[18])reds greens:(CGFloat[18])greens blues:(CGFloat[18])blues;
++ (NSArray *) initializeTypesArray;
++ (void) initializeTypeMatchups:(int[18][18]) typeMatchups;
++ (void) initializeReds:(CGFloat[18])reds greens:(CGFloat[18])greens blues:(CGFloat[18])blues;
 
 @end

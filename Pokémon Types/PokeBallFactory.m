@@ -10,33 +10,14 @@
 
 @implementation PokeBallFactory
 
-+ (NSDictionary *)typesDictMake {
-    
-    NSDictionary *typesDict = @{
-    [NSNumber numberWithInt:bug]:      @"Bug",
-    [NSNumber numberWithInt:dark]:     @"Dark",
-    [NSNumber numberWithInt:dragon]:   @"Dragon",
-    [NSNumber numberWithInt:electric]: @"Electric",
-    [NSNumber numberWithInt:fairy]:    @"Fairy",
-    [NSNumber numberWithInt:fighting]: @"Fighting",
-    [NSNumber numberWithInt:fire]:     @"Fire",
-    [NSNumber numberWithInt:flying]:   @"Flying",
-    [NSNumber numberWithInt:ghost]:    @"Ghost",
-    [NSNumber numberWithInt:grass]:    @"Grass",
-    [NSNumber numberWithInt:ground]:   @"Ground",
-    [NSNumber numberWithInt:ice]:      @"Ice",
-    [NSNumber numberWithInt:norm]:     @"Normal",
-    [NSNumber numberWithInt:poison]:   @"Poison",
-    [NSNumber numberWithInt:psychic]:  @"Psychic",
-    [NSNumber numberWithInt:rock]:     @"Rock",
-    [NSNumber numberWithInt:steel]:    @"Steel",
-    [NSNumber numberWithInt:water]:    @"Water",
-    };
++ (NSArray *)initializeTypesArray {
 
-    return typesDict;
+    return @[@"Bug", @"Dark", @"Dragon", @"Electric", @"Fairy", @"Fighting",
+             @"Fire", @"Flying", @"Ghost", @"Grass", @"Ground", @"Ice",
+             @"Normal", @"Poison", @"Psychic", @"Rock", @"Steel", @"Water"];
 }
 
-+ (void)instantiateTypeMatchups:(int[18][18])typeMatchups {
++ (void)initializeTypeMatchups:(int[18][18])typeMatchups {
 
     // normallyEffective is intentionally the first value of the effectiveness enum since it's the most common. This lets us halve the number of assignments that have to be made to this array, since each cell of the array is already set to 0 upon instantiation.
     // They're left here commented-out for reference.
@@ -402,7 +383,7 @@
     typeMatchups[water][water]       = notVeryEffective;
 }
 
-+ (void)instantiateReds:(CGFloat[18])reds greens:(CGFloat[18])greens blues:(CGFloat[18])blues {
++ (void)initializeReds:(CGFloat[18])reds greens:(CGFloat[18])greens blues:(CGFloat[18])blues {
 
     reds[bug] = 184/255.0;
     greens[bug] = 202/255.0;

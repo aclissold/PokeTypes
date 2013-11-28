@@ -40,14 +40,14 @@
                                     <outlet property="delegate" destination="CZ4-MO-1fc" id="ZFp-4S-z7u"/>
                                 </connections>
                             </pickerView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Attack Type" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="17" translatesAutoresizingMaskIntoConstraints="NO" id="GHl-9w-1IN">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Attack Type" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="17" translatesAutoresizingMaskIntoConstraints="NO" id="GHl-9w-1IN">
                                 <rect key="frame" x="2" y="100" width="17" height="112"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Opposing Type" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="13" translatesAutoresizingMaskIntoConstraints="NO" id="y8h-aP-E5x">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Opposing Type" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="13" translatesAutoresizingMaskIntoConstraints="NO" id="y8h-aP-E5x">
                                 <rect key="frame" x="4" y="271" width="13" height="137"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -73,8 +73,8 @@
                     <tabBarItem key="tabBarItem" title="Quick" image="Temp" id="u1e-5L-l1D"/>
                     <connections>
                         <outlet property="attackTypeLabel" destination="GHl-9w-1IN" id="AsD-ld-Ouw"/>
+                        <outlet property="effectivenessLabel" destination="O5m-rH-ytA" id="9Yx-aY-tOU"/>
                         <outlet property="firstPickerView" destination="ICb-ge-1tG" id="eBL-AZ-TII"/>
-                        <outlet property="label" destination="O5m-rH-ytA" id="eX5-KZ-40t"/>
                         <outlet property="opposingTypeLabel" destination="y8h-aP-E5x" id="oNf-ze-CZT"/>
                         <outlet property="opposingTypeLabelBottomConstraint" destination="9Sl-r7-Zgj" id="W7D-rr-UuF"/>
                         <outlet property="secondPickerView" destination="6NE-wv-XWU" id="cgU-fx-X1o"/>
