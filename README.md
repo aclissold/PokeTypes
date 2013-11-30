@@ -1,6 +1,7 @@
-Pokemon-Types
-=============
+PokéTypes
+=========
 
-A minimalistic iOS app to aid in remembrance of Pokémon type match-ups.
+A minimalistic iOS app to aid in remembrance of Pokémon type matchups.
 
-Currently under construction.
+For suggestions, issues, criticisms, or whatever, feel free to fork and
+contribute, or simply shoot me an [email](mailto:andrewclissold@gmail.com)!
