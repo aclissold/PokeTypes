@@ -20,7 +20,7 @@
 		224C29CE1807A4E800960D03 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224C29AA1807A4E800960D03 /* UIKit.framework */; };
 		224C29D61807A4E800960D03 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 224C29D41807A4E800960D03 /* InfoPlist.strings */; };
 		229685A31842923F008F9D40 /* PickerRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229685A21842923F008F9D40 /* PickerRowView.m */; };
-		22ED7BFB1847DB0800CED121 /* PokeTypesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22ED7BFA1847DB0800CED121 /* PokeTypesTests.m */; };
+		22ED7BFB1847DB0800CED121 /* TypesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22ED7BFA1847DB0800CED121 /* TypesTests.m */; };
 		22ED7BFE1847DC7400CED121 /* PokeBallFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22ED7BFD1847DC7400CED121 /* PokeBallFactory.m */; };
 /* End PBXBuildFile section */
 
@@ -30,31 +30,31 @@
 			containerPortal = 224C299B1807A4E800960D03 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 224C29A21807A4E800960D03;
-			remoteInfo = "PokéTypes";
+			remoteInfo = "Types";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		224C29A31807A4E800960D03 /* PokeTypes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeTypes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		224C29A31807A4E800960D03 /* Types.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Types.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		224C29A61807A4E800960D03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		224C29AA1807A4E800960D03 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		224C29AE1807A4E800960D03 /* PokeTypes-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PokeTypes-Info.plist"; sourceTree = "<group>"; };
+		224C29AE1807A4E800960D03 /* Types-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Types-Info.plist"; sourceTree = "<group>"; };
 		224C29B01807A4E800960D03 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		224C29B21807A4E800960D03 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		224C29B41807A4E800960D03 /* PokeTypes-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PokeTypes-Prefix.pch"; sourceTree = "<group>"; };
+		224C29B41807A4E800960D03 /* Types-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Types-Prefix.pch"; sourceTree = "<group>"; };
 		224C29B51807A4E800960D03 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		224C29B61807A4E800960D03 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		224C29B91807A4E800960D03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		224C29BE1807A4E800960D03 /* QuickViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickViewController.h; sourceTree = "<group>"; };
 		224C29BF1807A4E800960D03 /* QuickViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = QuickViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		224C29C41807A4E800960D03 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		224C29CA1807A4E800960D03 /* PokeTypesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokeTypesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		224C29CA1807A4E800960D03 /* TypesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TypesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		224C29CB1807A4E800960D03 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		224C29D31807A4E800960D03 /* PokeTypesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PokeTypesTests-Info.plist"; sourceTree = "<group>"; };
+		224C29D31807A4E800960D03 /* TypesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TypesTests-Info.plist"; sourceTree = "<group>"; };
 		224C29D51807A4E800960D03 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		229685A11842923F008F9D40 /* PickerRowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerRowView.h; sourceTree = "<group>"; };
 		229685A21842923F008F9D40 /* PickerRowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerRowView.m; sourceTree = "<group>"; };
-		22ED7BFA1847DB0800CED121 /* PokeTypesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokeTypesTests.m; sourceTree = "<group>"; };
+		22ED7BFA1847DB0800CED121 /* TypesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypesTests.m; sourceTree = "<group>"; };
 		22ED7BFC1847DC7400CED121 /* PokeBallFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PokeBallFactory.h; sourceTree = "<group>"; };
 		22ED7BFD1847DC7400CED121 /* PokeBallFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokeBallFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,8 +85,8 @@
 		224C299A1807A4E800960D03 = {
 			isa = PBXGroup;
 			children = (
-				224C29AC1807A4E800960D03 /* PokeTypes */,
-				224C29D11807A4E800960D03 /* PokeTypesTests */,
+				224C29AC1807A4E800960D03 /* Types */,
+				224C29D11807A4E800960D03 /* TypesTests */,
 				224C29A51807A4E800960D03 /* Frameworks */,
 				224C29A41807A4E800960D03 /* Products */,
 			);
@@ -95,8 +95,8 @@
 		224C29A41807A4E800960D03 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				224C29A31807A4E800960D03 /* PokeTypes.app */,
-				224C29CA1807A4E800960D03 /* PokeTypesTests.xctest */,
+				224C29A31807A4E800960D03 /* Types.app */,
+				224C29CA1807A4E800960D03 /* TypesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -111,7 +111,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		224C29AC1807A4E800960D03 /* PokeTypes */ = {
+		224C29AC1807A4E800960D03 /* Types */ = {
 			isa = PBXGroup;
 			children = (
 				224C29B51807A4E800960D03 /* AppDelegate.h */,
@@ -126,34 +126,34 @@
 				224C29C41807A4E800960D03 /* Images.xcassets */,
 				224C29AD1807A4E800960D03 /* Supporting Files */,
 			);
-			name = PokeTypes;
-			path = /Users/andrewclissold/Code/Xcode/PokeTypes/PokeTypes;
+			name = Types;
+			path = /Users/andrewclissold/Code/Xcode/Types/Types;
 			sourceTree = "<absolute>";
 		};
 		224C29AD1807A4E800960D03 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				224C29AE1807A4E800960D03 /* PokeTypes-Info.plist */,
+				224C29AE1807A4E800960D03 /* Types-Info.plist */,
 				224C29AF1807A4E800960D03 /* InfoPlist.strings */,
 				224C29B21807A4E800960D03 /* main.m */,
-				224C29B41807A4E800960D03 /* PokeTypes-Prefix.pch */,
+				224C29B41807A4E800960D03 /* Types-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		224C29D11807A4E800960D03 /* PokeTypesTests */ = {
+		224C29D11807A4E800960D03 /* TypesTests */ = {
 			isa = PBXGroup;
 			children = (
-				22ED7BFA1847DB0800CED121 /* PokeTypesTests.m */,
+				22ED7BFA1847DB0800CED121 /* TypesTests.m */,
 				224C29D21807A4E800960D03 /* Supporting Files */,
 			);
-			path = PokeTypesTests;
+			path = TypesTests;
 			sourceTree = "<group>";
 		};
 		224C29D21807A4E800960D03 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				224C29D31807A4E800960D03 /* PokeTypesTests-Info.plist */,
+				224C29D31807A4E800960D03 /* TypesTests-Info.plist */,
 				224C29D41807A4E800960D03 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -162,9 +162,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		224C29A21807A4E800960D03 /* PokeTypes */ = {
+		224C29A21807A4E800960D03 /* Types */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 224C29DB1807A4E900960D03 /* Build configuration list for PBXNativeTarget "PokeTypes" */;
+			buildConfigurationList = 224C29DB1807A4E900960D03 /* Build configuration list for PBXNativeTarget "Types" */;
 			buildPhases = (
 				224C299F1807A4E800960D03 /* Sources */,
 				224C29A01807A4E800960D03 /* Frameworks */,
@@ -174,14 +174,14 @@
 			);
 			dependencies = (
 			);
-			name = PokeTypes;
-			productName = "PokéTypes";
-			productReference = 224C29A31807A4E800960D03 /* PokeTypes.app */;
+			name = Types;
+			productName = "Types";
+			productReference = 224C29A31807A4E800960D03 /* Types.app */;
 			productType = "com.apple.product-type.application";
 		};
-		224C29C91807A4E800960D03 /* PokeTypesTests */ = {
+		224C29C91807A4E800960D03 /* TypesTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 224C29DE1807A4E900960D03 /* Build configuration list for PBXNativeTarget "PokeTypesTests" */;
+			buildConfigurationList = 224C29DE1807A4E900960D03 /* Build configuration list for PBXNativeTarget "TypesTests" */;
 			buildPhases = (
 				224C29C61807A4E800960D03 /* Sources */,
 				224C29C71807A4E800960D03 /* Frameworks */,
@@ -192,9 +192,9 @@
 			dependencies = (
 				224C29D01807A4E800960D03 /* PBXTargetDependency */,
 			);
-			name = PokeTypesTests;
-			productName = PokeTypesTests;
-			productReference = 224C29CA1807A4E800960D03 /* PokeTypesTests.xctest */;
+			name = TypesTests;
+			productName = TypesTests;
+			productReference = 224C29CA1807A4E800960D03 /* TypesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -214,7 +214,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 224C299E1807A4E800960D03 /* Build configuration list for PBXProject "PokeTypes" */;
+			buildConfigurationList = 224C299E1807A4E800960D03 /* Build configuration list for PBXProject "Types" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -227,8 +227,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				224C29A21807A4E800960D03 /* PokeTypes */,
-				224C29C91807A4E800960D03 /* PokeTypesTests */,
+				224C29A21807A4E800960D03 /* Types */,
+				224C29C91807A4E800960D03 /* TypesTests */,
 			);
 		};
 /* End PBXProject section */
@@ -271,7 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22ED7BFB1847DB0800CED121 /* PokeTypesTests.m in Sources */,
+				22ED7BFB1847DB0800CED121 /* TypesTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +280,7 @@
 /* Begin PBXTargetDependency section */
 		224C29D01807A4E800960D03 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 224C29A21807A4E800960D03 /* PokeTypes */;
+			target = 224C29A21807A4E800960D03 /* Types */;
 			targetProxy = 224C29CF1807A4E800960D03 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -392,11 +392,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PokeTypes/PokeTypes-Prefix.pch";
+				GCC_PREFIX_HEADER = "Types/Types-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				INFOPLIST_FILE = "PokeTypes/PokeTypes-Info.plist";
+				INFOPLIST_FILE = "Types/Types-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = PokeTypes;
+				PRODUCT_NAME = Types;
 				TARGETED_DEVICE_FAMILY = 1;
 				WARNING_CFLAGS = "-Wall";
 				WRAPPER_EXTENSION = app;
@@ -410,11 +410,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PokeTypes/PokeTypes-Prefix.pch";
+				GCC_PREFIX_HEADER = "Types/Types-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				INFOPLIST_FILE = "PokeTypes/PokeTypes-Info.plist";
+				INFOPLIST_FILE = "Types/Types-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = PokeTypes;
+				PRODUCT_NAME = Types;
 				TARGETED_DEVICE_FAMILY = 1;
 				WARNING_CFLAGS = "-Wall";
 				WRAPPER_EXTENSION = app;
@@ -424,20 +424,20 @@
 		224C29DF1807A4E900960D03 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PokeTypes.app/PokeTypes";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Types.app/Types";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PokeTypes/PokeTypes-Prefix.pch";
+				GCC_PREFIX_HEADER = "Types/Types-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "PokeTypesTests/PokeTypesTests-Info.plist";
-				PRODUCT_NAME = PokeTypesTests;
+				INFOPLIST_FILE = "TypesTests/TypesTests-Info.plist";
+				PRODUCT_NAME = TypesTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -446,16 +446,16 @@
 		224C29E01807A4E900960D03 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PokeTypes.app/PokeTypes";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Types.app/Types";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PokeTypes/PokeTypes-Prefix.pch";
-				INFOPLIST_FILE = "PokeTypesTests/PokeTypesTests-Info.plist";
-				PRODUCT_NAME = PokeTypesTests;
+				GCC_PREFIX_HEADER = "Types/Types-Prefix.pch";
+				INFOPLIST_FILE = "TypesTests/TypesTests-Info.plist";
+				PRODUCT_NAME = TypesTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -464,7 +464,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		224C299E1807A4E800960D03 /* Build configuration list for PBXProject "PokeTypes" */ = {
+		224C299E1807A4E800960D03 /* Build configuration list for PBXProject "Types" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				224C29D91807A4E900960D03 /* Debug */,
@@ -473,7 +473,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		224C29DB1807A4E900960D03 /* Build configuration list for PBXNativeTarget "PokeTypes" */ = {
+		224C29DB1807A4E900960D03 /* Build configuration list for PBXNativeTarget "Types" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				224C29DC1807A4E900960D03 /* Debug */,
@@ -482,7 +482,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		224C29DE1807A4E900960D03 /* Build configuration list for PBXNativeTarget "PokeTypesTests" */ = {
+		224C29DE1807A4E900960D03 /* Build configuration list for PBXNativeTarget "TypesTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				224C29DF1807A4E900960D03 /* Debug */,

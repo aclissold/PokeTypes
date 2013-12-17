@@ -1,6 +1,6 @@
 //
-//  PokeTypesTests.m
-//  PokeTypesTests
+//  TypesTests.m
+//  TypesTests
 //
 //  Created by Andrew Clissold on 10/10/13.
 //  Copyright (c) 2013 Andrew Clissold. All rights reserved.
@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface PokeTypesTests : XCTestCase
+@interface TypesTests : XCTestCase
 
 @end
 
-@implementation PokeTypesTests
+@implementation TypesTests
 
 - (void)setUp
 {

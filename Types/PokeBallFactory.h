@@ -1,6 +1,6 @@
 //
 //  PokeBallFactory.h
-//  PokeTypes
+//  Types
 //
 //  PokeBallFactory, named after the Poké Ball Factory in the Kalos region, is a factory method for arrays and dictionaries required by the other classes that have a large amount of hard-coded values.
 //  Created by Andrew Clissold on 11/3/13.
