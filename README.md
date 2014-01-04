@@ -1,7 +1,9 @@
 Types
 =====
 
-A minimalistic iOS app to aid in remembrance of Pokémon type matchups.
+Now available on the App Store! [Check it out](https://itunes.apple.com/us/app/types/id784727885?ls=1&mt=8)!
+
+Types is a minimalistic iOS app to aid in remembrance of Pokémon type matchups.
 
 For suggestions, issues, criticisms, or whatever, feel free to fork and
 contribute, or simply shoot me an [email](mailto:andrewclissold@gmail.com)!
