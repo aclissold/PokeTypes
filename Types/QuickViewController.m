@@ -56,6 +56,10 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    [self updateEffectivenessLabelAndBackground];
+}
+
+- (void)updateEffectivenessLabelAndBackground {
     NSInteger firstSelectedRow  = [self.firstPickerView selectedRowInComponent:0];
     NSInteger secondSelectedRow = [self.secondPickerView selectedRowInComponent:0];
     int effectiveness     = typeMatchups[firstSelectedRow][secondSelectedRow];
@@ -80,7 +84,15 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
     self.gradient.colors = [NSArray arrayWithObjects:
                           (id)[[UIColor colorWithRed:reds[firstSelectedRow] green:greens[firstSelectedRow] blue:blues[firstSelectedRow] alpha:ALPHA] CGColor],
                           (id)[[UIColor colorWithRed:reds[secondSelectedRow] green:greens[secondSelectedRow] blue:blues[secondSelectedRow] alpha:ALPHA] CGColor], nil];
-    }
+}
+
+- (IBAction)swapPickers:(UIButton *)sender {
+    NSInteger firstPickerRow = [self.firstPickerView selectedRowInComponent:0];
+    NSInteger secondPickerRow = [self.secondPickerView selectedRowInComponent:0];
+    [self.firstPickerView selectRow:secondPickerRow inComponent:0 animated:YES];
+    [self.secondPickerView selectRow:firstPickerRow inComponent:0 animated:YES];
+    [self updateEffectivenessLabelAndBackground];
+}
 
 // The images are instantiated directly within this method as a workaround for a display bug
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {

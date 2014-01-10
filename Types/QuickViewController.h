@@ -16,4 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *effectivenessLabel;
 @property (weak, nonatomic) IBOutlet UILabel *attackTypeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *opposingTypeLabel;
+
+- (IBAction)swapPickers:(UIButton *)sender;
+
 @end

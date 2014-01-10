@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5023" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="CZ4-MO-1fc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="CZ4-MO-1fc">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Quick View Controller - Quick-->
@@ -25,7 +25,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ICb-ge-1tG">
-                                <rect key="frame" x="43" y="195" width="277" height="162"/>
+                                <rect key="frame" x="43" y="147" width="277" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.87075494259999997" green="0.0" blue="0.0094485673999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -42,30 +42,44 @@
                                 </connections>
                             </pickerView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Attack Type" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="17" translatesAutoresizingMaskIntoConstraints="NO" id="GHl-9w-1IN">
-                                <rect key="frame" x="2" y="149" width="17" height="112"/>
+                                <rect key="frame" x="0.0" y="89" width="17" height="112"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Opposing Type" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="13" translatesAutoresizingMaskIntoConstraints="NO" id="y8h-aP-E5x">
-                                <rect key="frame" x="4" y="320" width="13" height="137"/>
+                                <rect key="frame" x="2" y="313" width="13" height="137"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ES0-bN-Uu8">
+                                <rect key="frame" x="142" y="299" width="36" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Swap">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="Dark"/>
+                                <state key="highlighted" image="SwapHighlighted"/>
+                                <connections>
+                                    <action selector="swapPickers:" destination="CZ4-MO-1fc" eventType="touchUpInside" id="iby-Sz-fcV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="y8h-aP-E5x" firstAttribute="top" secondItem="GHl-9w-1IN" secondAttribute="bottom" constant="59" id="6Gx-3O-Fpc"/>
+                            <constraint firstItem="y8h-aP-E5x" firstAttribute="top" secondItem="GHl-9w-1IN" secondAttribute="bottom" constant="112" id="6Gx-3O-Fpc"/>
                             <constraint firstItem="JrE-Xt-im4" firstAttribute="top" secondItem="6NE-wv-XWU" secondAttribute="bottom" constant="-10" id="6bi-2e-YRi"/>
-                            <constraint firstItem="JrE-Xt-im4" firstAttribute="top" secondItem="y8h-aP-E5x" secondAttribute="bottom" constant="23" id="9Sl-r7-Zgj"/>
+                            <constraint firstItem="JrE-Xt-im4" firstAttribute="top" secondItem="y8h-aP-E5x" secondAttribute="bottom" constant="30" id="9Sl-r7-Zgj"/>
+                            <constraint firstAttribute="centerX" secondItem="ES0-bN-Uu8" secondAttribute="centerX" id="CD7-e8-4ZU"/>
                             <constraint firstItem="ICb-ge-1tG" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" constant="43" id="JO5-oC-AOG"/>
+                            <constraint firstItem="6NE-wv-XWU" firstAttribute="top" secondItem="ES0-bN-Uu8" secondAttribute="bottom" constant="-7" id="K4x-Oy-bMX"/>
                             <constraint firstAttribute="centerY" secondItem="O5m-rH-ytA" secondAttribute="centerY" constant="201" id="M7l-61-RXh"/>
                             <constraint firstAttribute="trailing" secondItem="6NE-wv-XWU" secondAttribute="trailing" id="Q3Y-gR-XHb"/>
                             <constraint firstItem="O5m-rH-ytA" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" constant="20" id="p6q-Ra-DfP"/>
-                            <constraint firstItem="6NE-wv-XWU" firstAttribute="top" secondItem="ICb-ge-1tG" secondAttribute="bottom" constant="-29" id="wjv-vI-MGP"/>
+                            <constraint firstItem="6NE-wv-XWU" firstAttribute="top" secondItem="ICb-ge-1tG" secondAttribute="bottom" constant="19" id="wjv-vI-MGP"/>
                             <constraint firstItem="6NE-wv-XWU" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" constant="43" id="xzz-5g-F3v"/>
                             <constraint firstAttribute="trailing" secondItem="ICb-ge-1tG" secondAttribute="trailing" id="yGI-hE-8YZ"/>
                             <constraint firstAttribute="trailing" secondItem="O5m-rH-ytA" secondAttribute="trailing" constant="20" id="yi2-mY-LMB"/>
@@ -86,6 +100,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Dark" width="30" height="30"/>
+        <image name="Swap" width="36" height="36"/>
+        <image name="SwapHighlighted" width="36" height="36"/>
         <image name="Temp" width="30" height="30"/>
     </resources>
     <color key="tintColor" red="0.87075494259999997" green="0.0" blue="0.0094485673999999999" alpha="1" colorSpace="calibratedRGB"/>

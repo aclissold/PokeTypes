@@ -30,7 +30,7 @@
 			containerPortal = 224C299B1807A4E800960D03 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 224C29A21807A4E800960D03;
-			remoteInfo = "Types";
+			remoteInfo = Types;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -127,7 +127,7 @@
 				224C29AD1807A4E800960D03 /* Supporting Files */,
 			);
 			name = Types;
-			path = /Users/andrewclissold/Code/Xcode/Types/Types;
+			path = /Users/andrewclissold/Code/Types/Types;
 			sourceTree = "<absolute>";
 		};
 		224C29AD1807A4E800960D03 /* Supporting Files */ = {
@@ -175,7 +175,7 @@
 			dependencies = (
 			);
 			name = Types;
-			productName = "Types";
+			productName = Types;
 			productReference = 224C29A31807A4E800960D03 /* Types.app */;
 			productType = "com.apple.product-type.application";
 		};
