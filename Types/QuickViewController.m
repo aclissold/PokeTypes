@@ -10,7 +10,7 @@
 #import "QuickViewController.h"
 #import "PickerRowView.h"
 
-#define ALPHA 0.7
+static const float kAlpha = 0.7;
 
 @interface QuickViewController() {
     CGFloat reds[18], greens[18], blues[18]; // holds the RGB values of type colors for the background
@@ -30,40 +30,28 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
     [super viewDidLoad];
 
     // Set up the data objects
-    _typesArray = [PokeBallFactory initializeTypesArray];
+    self.typesArray = [PokeBallFactory initializeTypesArray];
     [PokeBallFactory initializeTypeMatchups:typeMatchups];
     [PokeBallFactory initializeReds:reds greens:greens blues:blues];
 
     // Add the gradient background
-    _gradient = [CAGradientLayer layer];
-    _gradient.frame = self.view.bounds;
-    _gradient.colors = [NSArray arrayWithObjects:
-                       (id)[[UIColor colorWithRed:reds[bug] green:greens[bug] blue:blues[bug] alpha:ALPHA] CGColor],
-                       (id)[[UIColor colorWithRed:reds[bug] green:greens[bug] blue:blues[bug] alpha:ALPHA] CGColor], nil];
-    [self.view.layer insertSublayer:_gradient atIndex:0];
-    
+    self.gradient = [CAGradientLayer layer];
+    self.gradient.frame = self.view.bounds;
+    self.gradient.colors = [NSArray arrayWithObjects:
+                       (id)[[UIColor colorWithRed:reds[bug] green:greens[bug] blue:blues[bug] alpha:kAlpha] CGColor],
+                       (id)[[UIColor colorWithRed:reds[bug] green:greens[bug] blue:blues[bug] alpha:kAlpha] CGColor], nil];
+    [self.view.layer insertSublayer:self.gradient atIndex:0];
+
     // Make the labels vertical
     self.attackTypeLabel.transform = CGAffineTransformMakeRotation(3 * M_PI_2);
     self.opposingTypeLabel.transform = CGAffineTransformMakeRotation(3 * M_PI_2);
 }
 
-- (NSInteger) numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return 1;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return [self.typesArray count];
-}
-
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    [self updateEffectivenessLabelAndBackground];
-}
-
 - (void)updateEffectivenessLabelAndBackground {
-    NSInteger firstSelectedRow  = [self.firstPickerView selectedRowInComponent:0];
-    NSInteger secondSelectedRow = [self.secondPickerView selectedRowInComponent:0];
-    int effectiveness     = typeMatchups[firstSelectedRow][secondSelectedRow];
-    
+    NSInteger i  = [self.firstPickerView selectedRowInComponent:0];
+    NSInteger j = [self.secondPickerView selectedRowInComponent:0];
+
+    int effectiveness = typeMatchups[i][j];
     switch (effectiveness) {
         case noEffect:
             self.effectivenessLabel.text = @"Has no effect.";
@@ -82,8 +70,8 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
     }
     
     self.gradient.colors = [NSArray arrayWithObjects:
-                          (id)[[UIColor colorWithRed:reds[firstSelectedRow] green:greens[firstSelectedRow] blue:blues[firstSelectedRow] alpha:ALPHA] CGColor],
-                          (id)[[UIColor colorWithRed:reds[secondSelectedRow] green:greens[secondSelectedRow] blue:blues[secondSelectedRow] alpha:ALPHA] CGColor], nil];
+                          (id)[[UIColor colorWithRed:reds[i] green:greens[i] blue:blues[i] alpha:kAlpha] CGColor],
+                          (id)[[UIColor colorWithRed:reds[j] green:greens[j] blue:blues[j] alpha:kAlpha] CGColor], nil];
 }
 
 - (IBAction)swapPickers:(UIButton *)sender {
@@ -91,6 +79,20 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
     NSInteger secondPickerRow = [self.secondPickerView selectedRowInComponent:0];
     [self.firstPickerView selectRow:secondPickerRow inComponent:0 animated:YES];
     [self.secondPickerView selectRow:firstPickerRow inComponent:0 animated:YES];
+    [self updateEffectivenessLabelAndBackground];
+}
+
+#pragma mark - UIPickerViewDelegate
+
+- (NSInteger) numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return [self.typesArray count];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     [self updateEffectivenessLabelAndBackground];
 }
 
