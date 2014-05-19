@@ -21,6 +21,7 @@ static const float kAlpha = 0.7;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (strong, nonatomic) CAGradientLayer *gradient;
 @property (strong, nonatomic) NSArray *typesArray;
+@property (nonatomic) NSInteger lastSelectedRow;
 @end
 
 @implementation QuickViewController
@@ -102,9 +103,12 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
     [self updateEffectivenessLabelAndBackground];
 }
 
-- (IBAction)segmentedControlChanged:(UISegmentedControl *)sender {
+- (IBAction)segmentedControlChanged:(UISegmentedControl *)segmentedControl {
     [self.secondPickerView reloadAllComponents];
     [self updateEffectivenessLabelAndBackground];
+    if (segmentedControl.selectedSegmentIndex == 1) {
+        [self.secondPickerView selectRow:self.lastSelectedRow inComponent:1 animated:NO];
+    }
 }
 
 #pragma mark - UIPickerViewDelegate
@@ -119,6 +123,9 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     [self updateEffectivenessLabelAndBackground];
+    if (component == 1) {
+        self.lastSelectedRow = row;
+    }
 }
 
 // The images are instantiated directly within this method as a workaround for a display bug
