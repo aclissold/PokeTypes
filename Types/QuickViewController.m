@@ -56,6 +56,10 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
 - (void)updateEffectivenessLabelAndBackground {
     NSInteger i  = [self.firstPickerView selectedRowInComponent:0];
     NSInteger j = [self.secondPickerView selectedRowInComponent:0];
+    NSInteger k = -1;
+    if (self.segmentedControl.selectedSegmentIndex == 1) {
+        k = [self.secondPickerView selectedRowInComponent:1];
+    }
 
     int effectiveness = typeMatchups[i][j];
     switch (effectiveness) {
@@ -74,10 +78,20 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
         default:
             break;
     }
-    
-    self.gradient.colors = [NSArray arrayWithObjects:
-                          (id)[[UIColor colorWithRed:reds[i] green:greens[i] blue:blues[i] alpha:kAlpha] CGColor],
-                          (id)[[UIColor colorWithRed:reds[j] green:greens[j] blue:blues[j] alpha:kAlpha] CGColor], nil];
+
+    UIColor *bottomGradientColor;
+    if (k == -1) {
+        // Only one picker view onscreen
+        bottomGradientColor = [UIColor colorWithRed:reds[j] green:greens[j] blue:blues[j] alpha:kAlpha];
+    } else {
+        CGFloat red = (reds[j] + reds[k]) / 2.0f;
+        CGFloat green = (greens[j] + greens[k]) / 2.0f;
+        CGFloat blue = (blues[j] + blues[k]) / 2.0f;
+        bottomGradientColor = [UIColor colorWithRed:red green:green blue:blue alpha:kAlpha];
+    }
+
+    self.gradient.colors = @[(id)[[UIColor colorWithRed:reds[i] green:greens[i] blue:blues[i] alpha:kAlpha] CGColor],
+                             (id)[bottomGradientColor CGColor]];
 }
 
 - (IBAction)swapPickers:(UIButton *)sender {
@@ -90,6 +104,7 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
 
 - (IBAction)segmentedControlChanged:(UISegmentedControl *)sender {
     [self.secondPickerView reloadAllComponents];
+    [self updateEffectivenessLabelAndBackground];
 }
 
 #pragma mark - UIPickerViewDelegate
