@@ -13,15 +13,25 @@
 static const float kAlpha = 0.7;
 
 @interface QuickViewController() {
-    CGFloat reds[18], greens[18], blues[18]; // holds the RGB values of type colors for the background
-    int typeMatchups[18][18]; // A 2D array of type matchups; the rows are attack types and the columns are opposing Pokémon
+    CGFloat reds[18], greens[18], blues[18];
+    int typeMatchups[18][18];
 }
+
+@property (weak, nonatomic) IBOutlet UILabel *effectivenessLabel;
+
+@property (weak, nonatomic) IBOutlet UIPickerView *topPickerView;
+@property (weak, nonatomic) IBOutlet UIPickerView *bottomPickerView;
+
+@property (weak, nonatomic) IBOutlet UILabel *attackTypeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *opposingTypeLabel;
 @property (weak, nonatomic) IBOutlet UIView *attackTypeView;
 @property (weak, nonatomic) IBOutlet UIView *opposingTypeView;
+
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (strong, nonatomic) CAGradientLayer *gradient;
 @property (strong, nonatomic) NSArray *typesArray;
 @property (nonatomic) NSInteger lastSelectedRow;
+
 @end
 
 @implementation QuickViewController
@@ -55,11 +65,11 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
 }
 
 - (void)updateEffectivenessLabelAndBackground {
-    NSInteger i  = [self.firstPickerView selectedRowInComponent:0];
-    NSInteger j = [self.secondPickerView selectedRowInComponent:0];
+    NSInteger i  = [self.topPickerView selectedRowInComponent:0];
+    NSInteger j = [self.bottomPickerView selectedRowInComponent:0];
     NSInteger k = -1;
     if (self.segmentedControl.selectedSegmentIndex == 1) {
-        k = [self.secondPickerView selectedRowInComponent:1];
+        k = [self.bottomPickerView selectedRowInComponent:1];
     }
 
     int effectiveness = typeMatchups[i][j];
@@ -96,18 +106,18 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
 }
 
 - (IBAction)swapPickers:(UIButton *)sender {
-    NSInteger firstPickerRow = [self.firstPickerView selectedRowInComponent:0];
-    NSInteger secondPickerRow = [self.secondPickerView selectedRowInComponent:0];
-    [self.firstPickerView selectRow:secondPickerRow inComponent:0 animated:YES];
-    [self.secondPickerView selectRow:firstPickerRow inComponent:0 animated:YES];
+    NSInteger firstPickerRow = [self.topPickerView selectedRowInComponent:0];
+    NSInteger secondPickerRow = [self.bottomPickerView selectedRowInComponent:0];
+    [self.topPickerView selectRow:secondPickerRow inComponent:0 animated:YES];
+    [self.bottomPickerView selectRow:firstPickerRow inComponent:0 animated:YES];
     [self updateEffectivenessLabelAndBackground];
 }
 
 - (IBAction)segmentedControlChanged:(UISegmentedControl *)segmentedControl {
-    [self.secondPickerView reloadAllComponents];
+    [self.bottomPickerView reloadAllComponents];
     [self updateEffectivenessLabelAndBackground];
     if (segmentedControl.selectedSegmentIndex == 1) {
-        [self.secondPickerView selectRow:self.lastSelectedRow inComponent:1 animated:NO];
+        [self.bottomPickerView selectRow:self.lastSelectedRow inComponent:1 animated:NO];
     }
 }
 

@@ -8,15 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-// TODO: Considering using properties instead (nonatomic, retain)
-
 @interface QuickViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
-@property (weak, nonatomic) IBOutlet UIPickerView *firstPickerView;
-@property (weak, nonatomic) IBOutlet UIPickerView *secondPickerView;
-@property (weak, nonatomic) IBOutlet UILabel *effectivenessLabel;
-@property (weak, nonatomic) IBOutlet UILabel *attackTypeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *opposingTypeLabel;
-
-- (IBAction)swapPickers:(UIButton *)sender;
 
 @end
