@@ -60,6 +60,9 @@
                                     <segment title=" 1 "/>
                                     <segment title=" 2 "/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentedControlChanged:" destination="CZ4-MO-1fc" eventType="valueChanged" id="KfW-xa-GkS"/>
+                                </connections>
                             </segmentedControl>
                             <view alpha="0.75" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uWX-Hq-kHv">
                                 <rect key="frame" x="8" y="85" width="27" height="120"/>
@@ -122,6 +125,7 @@
                         <outlet property="opposingTypeLabel" destination="y8h-aP-E5x" id="oNf-ze-CZT"/>
                         <outlet property="opposingTypeView" destination="AnX-zF-NL7" id="3H4-yT-bj3"/>
                         <outlet property="secondPickerView" destination="6NE-wv-XWU" id="cgU-fx-X1o"/>
+                        <outlet property="segmentedControl" destination="onf-wh-1c7" id="imc-m9-vCI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>

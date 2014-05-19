@@ -18,6 +18,7 @@ static const float kAlpha = 0.7;
 }
 @property (weak, nonatomic) IBOutlet UIView *attackTypeView;
 @property (weak, nonatomic) IBOutlet UIView *opposingTypeView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (strong, nonatomic) CAGradientLayer *gradient;
 @property (strong, nonatomic) NSArray *typesArray;
 @end
@@ -87,10 +88,14 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
     [self updateEffectivenessLabelAndBackground];
 }
 
+- (IBAction)segmentedControlChanged:(UISegmentedControl *)sender {
+    [self.secondPickerView reloadAllComponents];
+}
+
 #pragma mark - UIPickerViewDelegate
 
 - (NSInteger) numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return 1;
+    return self.segmentedControl.selectedSegmentIndex + 1;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
