@@ -16,6 +16,8 @@ static const float kAlpha = 0.7;
     CGFloat reds[18], greens[18], blues[18]; // holds the RGB values of type colors for the background
     int typeMatchups[18][18]; // A 2D array of type matchups; the rows are attack types and the columns are opposing Pokémon
 }
+@property (weak, nonatomic) IBOutlet UIView *attackTypeView;
+@property (weak, nonatomic) IBOutlet UIView *opposingTypeView;
 @property (strong, nonatomic) CAGradientLayer *gradient;
 @property (strong, nonatomic) NSArray *typesArray;
 @end
@@ -45,6 +47,9 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
     // Make the labels vertical
     self.attackTypeLabel.transform = CGAffineTransformMakeRotation(3 * M_PI_2);
     self.opposingTypeLabel.transform = CGAffineTransformMakeRotation(3 * M_PI_2);
+
+    self.attackTypeView.layer.cornerRadius = 5.0f;
+    self.opposingTypeView.layer.cornerRadius = 5.0f;
 }
 
 - (void)updateEffectivenessLabelAndBackground {
