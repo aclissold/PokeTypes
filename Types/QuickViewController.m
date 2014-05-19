@@ -72,7 +72,16 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
         k = [self.bottomPickerView selectedRowInComponent:1];
     }
 
-    int effectiveness = typeMatchups[i][j];
+    int effectiveness;
+    if (k == -1 || j == k) {
+        // Only one picker view onscreen or bottom pickers are the same type
+        effectiveness = typeMatchups[i][j];
+    } else {
+        int firstEffectiveness = typeMatchups[i][j];
+        int secondEffectiveness = typeMatchups[i][k];
+        effectiveness = [self combinedEffectivenessForFirstEffectiveness:firstEffectiveness
+                                                     secondEffectiveness:secondEffectiveness];
+    }
     switch (effectiveness) {
         case noEffect:
             self.effectivenessLabel.text = @"Has no effect.";
@@ -85,6 +94,9 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
             break;
         case superEffective:
             self.effectivenessLabel.text = @"It's super effective!";
+            break;
+        case superSuperEffective:
+            self.effectivenessLabel.text = @"It's 4x effective!";
             break;
         default:
             break;
@@ -105,6 +117,21 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
                              (id)[bottomGradientColor CGColor]];
 }
 
+float damageMultipliers[4] = {1.0, 0.0, 0.5, 2.0};
+- (int)combinedEffectivenessForFirstEffectiveness:(int)firstEffectiveness
+                              secondEffectiveness:(int)secondEffectiveness {
+
+    float damage = damageMultipliers[firstEffectiveness] * damageMultipliers[secondEffectiveness];
+
+    if (damage == 0.0) return noEffect;
+    if (damage == 0.5) return notVeryEffective;
+    if (damage == 1.0) return normallyEffective;
+    if (damage == 2.0) return superEffective;
+    if (damage == 4.0) return superSuperEffective;
+
+    return -1; // crash and burn
+}
+
 - (IBAction)swapPickers:(UIButton *)sender {
     NSInteger firstPickerRow = [self.topPickerView selectedRowInComponent:0];
     NSInteger secondPickerRow = [self.bottomPickerView selectedRowInComponent:0];
@@ -115,10 +142,10 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
 
 - (IBAction)segmentedControlChanged:(UISegmentedControl *)segmentedControl {
     [self.bottomPickerView reloadAllComponents];
-    [self updateEffectivenessLabelAndBackground];
     if (segmentedControl.selectedSegmentIndex == 1) {
         [self.bottomPickerView selectRow:self.lastSelectedRow inComponent:1 animated:NO];
     }
+    [self updateEffectivenessLabelAndBackground];
 }
 
 #pragma mark - UIPickerViewDelegate

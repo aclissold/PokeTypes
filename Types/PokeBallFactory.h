@@ -34,7 +34,8 @@ enum effectiveness {
     normallyEffective,
     noEffect,
     notVeryEffective,
-    superEffective
+    superEffective,
+    superSuperEffective
 };
 
 @interface PokeBallFactory : NSObject
