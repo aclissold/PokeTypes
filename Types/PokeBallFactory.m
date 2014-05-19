@@ -3,7 +3,7 @@
 //  Types
 //
 //  Created by Andrew Clissold on 11/3/13.
-//  Copyright (c) 2013 Andrew Clissold. All rights reserved.
+//  Copyright (c) 2014 Andrew Clissold. All rights reserved.
 //
 
 #import "PokeBallFactory.h"
