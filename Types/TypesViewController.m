@@ -32,6 +32,8 @@ static const float kAlpha = 0.7;
 @property (strong, nonatomic) NSArray *typesArray;
 @property (nonatomic) NSInteger lastSelectedRow;
 
+@property (weak, nonatomic) IBOutlet UIToolbar *rateItView;
+
 @end
 
 @implementation TypesViewController
@@ -62,6 +64,15 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
 
     self.attackTypeView.layer.cornerRadius = 5.0f;
     self.opposingTypeView.layer.cornerRadius = 5.0f;
+
+    UIBarButtonItem *hideButton =
+    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop
+                                                  target:self
+                                                  action:@selector(hideRateItView)];
+    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    NSArray *items = @[space, hideButton];
+    self.rateItView.items = items;
+    self.rateItView.clipsToBounds = YES;
 }
 
 - (void)updateEffectivenessLabelAndBackground {
@@ -146,6 +157,18 @@ float damageMultipliers[4] = {1.0, 0.0, 0.5, 2.0};
         [self.bottomPickerView selectRow:self.lastSelectedRow inComponent:1 animated:NO];
     }
     [self updateEffectivenessLabelAndBackground];
+}
+
+- (IBAction)rateIt {
+    NSLog(@"Jump to App Store here");
+}
+
+- (void)hideRateItView {
+    CGRect frame = self.rateItView.frame;
+    frame.origin.y += frame.size.height;
+    [UIView animateWithDuration:0.25 animations:^{
+        self.rateItView.frame = frame;
+    }];
 }
 
 #pragma mark - UIPickerViewDelegate
