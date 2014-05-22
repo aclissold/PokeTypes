@@ -160,15 +160,16 @@ float damageMultipliers[4] = {1.0, 0.0, 0.5, 2.0};
 }
 
 - (IBAction)rateIt {
-    NSLog(@"Jump to App Store here");
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id784727885"]];
+    [self hideRateItView];
 }
 
 - (void)hideRateItView {
     CGRect frame = self.rateItView.frame;
     frame.origin.y += frame.size.height;
-    [UIView animateWithDuration:0.25 animations:^{
+    [UIView animateWithDuration:0.25 delay:0.1 options:UIViewAnimationOptionCurveEaseIn animations:^{
         self.rateItView.frame = frame;
-    }];
+    } completion:nil];
 }
 
 #pragma mark - UIPickerViewDelegate
