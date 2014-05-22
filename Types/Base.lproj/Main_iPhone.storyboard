@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Quick View Controller - Quick-->
+        <!--Types View Controller - Types-->
         <scene sceneID="W3I-pn-N6e">
             <objects>
-                <viewController title="Quick" id="CZ4-MO-1fc" customClass="QuickViewController" sceneMemberID="viewController">
+                <viewController title="Types" id="CZ4-MO-1fc" customClass="TypesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GKv-en-CcC"/>
                         <viewControllerLayoutGuide type="bottom" id="JrE-Xt-im4"/>

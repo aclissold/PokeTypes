@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  TypesViewController.h
 //  Types
 //
 //  Created by Andrew Clissold on 10/10/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QuickViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
+@interface TypesViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 
 @end

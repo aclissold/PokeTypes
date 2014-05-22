@@ -1,5 +1,5 @@
 //
-//  FirstViewController.m
+//  TypesViewController.m
 //  Types
 //
 //  Created by Andrew Clissold on 10/10/13.
@@ -7,12 +7,12 @@
 //
 
 #import "PokeBallFactory.h"
-#import "QuickViewController.h"
+#import "TypesViewController.h"
 #import "PickerRowView.h"
 
 static const float kAlpha = 0.7;
 
-@interface QuickViewController() {
+@interface TypesViewController() {
     CGFloat reds[18], greens[18], blues[18];
     int typeMatchups[18][18];
 }
@@ -34,7 +34,7 @@ static const float kAlpha = 0.7;
 
 @end
 
-@implementation QuickViewController
+@implementation TypesViewController
 
 const CGFloat kPickerConstraintSize = -10.0;
 const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
