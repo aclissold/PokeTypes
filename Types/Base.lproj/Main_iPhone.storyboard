@@ -116,7 +116,6 @@
                             <constraint firstAttribute="trailing" secondItem="O5m-rH-ytA" secondAttribute="trailing" constant="8" id="yi2-mY-LMB"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Quick" image="Temp" id="u1e-5L-l1D"/>
                     <connections>
                         <outlet property="attackTypeLabel" destination="GHl-9w-1IN" id="AsD-ld-Ouw"/>
                         <outlet property="attackTypeView" destination="uWX-Hq-kHv" id="vb6-7M-EZf"/>
@@ -137,7 +136,6 @@
         <image name="Dark" width="30" height="30"/>
         <image name="Swap" width="36" height="36"/>
         <image name="SwapHighlighted" width="36" height="36"/>
-        <image name="Temp" width="30" height="30"/>
     </resources>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0094485673999999964" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
