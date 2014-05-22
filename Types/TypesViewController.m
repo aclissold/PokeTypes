@@ -161,19 +161,48 @@ float damageMultipliers[4] = {1.0, 0.0, 0.5, 2.0};
 
 #pragma mark - RateIt View Logic
 
+static NSString * const hasRatedKey = @"hasRated";
+static NSString * const installDateKey = @"installDate";
+static NSString * const hasSeenItKey = @"hasSeenIt";
+static NSString * const appStoreURL = @"itms-apps://itunes.apple.com/app/id784727885";
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [self showRateItViewIfNecessary];
+}
+
+- (void)showRateItViewIfNecessary {
+    BOOL hasRated = [[NSUserDefaults standardUserDefaults] boolForKey:hasRatedKey];
+    if (hasRated) {
+        return;
+    }
+
+    NSDate *installDate = (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:installDateKey];
+    if (installDate == nil) {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:installDateKey];
+        return;
+    }
 
     CGRect frame = self.rateItView.frame;
     frame.origin.y = CGRectGetHeight(self.view.bounds);
     self.rateItView.frame = frame;
     self.rateItView.hidden = NO;
 
-    [self showRateItView];
+    NSTimeInterval timeIntervalSinceInstall = [[NSDate date] timeIntervalSinceDate:installDate];
+    BOOL hasSeenIt = [[NSUserDefaults standardUserDefaults] boolForKey:hasSeenItKey];
+    if (timeIntervalSinceInstall > 60*60*24*10) { // 10 days
+        [self showRateItView];
+        // Just assume the user rated it to avoid bothering them anymore
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:hasRatedKey];
+    } else if (timeIntervalSinceInstall > 60*60*24*2 && !hasSeenIt) { // 2 days
+        [self showRateItView];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:hasSeenItKey];
+    }
 }
 
 - (IBAction)rateIt {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id784727885"]];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:hasRatedKey];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:appStoreURL]];
     [self hideRateItView];
 }
 
