@@ -92,8 +92,8 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQY-bx-Ymp" customClass="UIToolbar">
-                                <rect key="frame" x="0.0" y="525" width="320" height="43"/>
+                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fQY-bx-Ymp" customClass="UIToolbar">
+                                <rect key="frame" x="0.0" y="526" width="320" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="    Love Types? Rate it!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZy-Jd-zeV">
@@ -127,7 +127,6 @@
                             <constraint firstAttribute="centerY" secondItem="O5m-rH-ytA" secondAttribute="centerY" constant="201" id="M7l-61-RXh"/>
                             <constraint firstAttribute="trailing" secondItem="6NE-wv-XWU" secondAttribute="trailing" id="Q3Y-gR-XHb"/>
                             <constraint firstAttribute="trailing" secondItem="onf-wh-1c7" secondAttribute="trailing" constant="20" id="SLa-ws-9xP"/>
-                            <constraint firstAttribute="bottom" secondItem="fQY-bx-Ymp" secondAttribute="bottom" id="YeX-du-Pbu"/>
                             <constraint firstItem="O5m-rH-ytA" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" constant="9" id="p6q-Ra-DfP"/>
                             <constraint firstItem="JrE-Xt-im4" firstAttribute="top" secondItem="AnX-zF-NL7" secondAttribute="bottom" constant="21" id="r5u-OK-gtk"/>
                             <constraint firstItem="uWX-Hq-kHv" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" constant="8" id="tFf-n3-nvo"/>

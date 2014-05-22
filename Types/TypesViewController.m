@@ -159,17 +159,38 @@ float damageMultipliers[4] = {1.0, 0.0, 0.5, 2.0};
     [self updateEffectivenessLabelAndBackground];
 }
 
+#pragma mark - RateIt View Logic
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
+    CGRect frame = self.rateItView.frame;
+    frame.origin.y = CGRectGetHeight(self.view.bounds);
+    self.rateItView.frame = frame;
+    self.rateItView.hidden = NO;
+
+    [self showRateItView];
+}
+
 - (IBAction)rateIt {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id784727885"]];
     [self hideRateItView];
 }
 
+- (void)showRateItView {
+    [self animateRateItViewByY:-self.rateItView.frame.size.height];
+}
+
 - (void)hideRateItView {
+    [self animateRateItViewByY:self.rateItView.frame.size.height];
+}
+
+- (void)animateRateItViewByY:(CGFloat)y {
     CGRect frame = self.rateItView.frame;
-    frame.origin.y += frame.size.height;
+    frame.origin.y += y;
     [UIView animateWithDuration:0.25 delay:0.1 options:UIViewAnimationOptionCurveEaseIn animations:^{
         self.rateItView.frame = frame;
-    } completion:nil];
+    } completion:NULL];
 }
 
 #pragma mark - UIPickerViewDelegate
