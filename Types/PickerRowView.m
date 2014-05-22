@@ -40,6 +40,7 @@ const CGFloat kMarginSize = 10;
                                   CGRectGetWidth(self.frame) - kMarginSize + image.size.width + kMarginSize,
                                   kLabelHeight)];
         self.titleLabel.text = title;
+        self.titleLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:17.0f];
         self.titleLabel.backgroundColor = [UIColor clearColor];
         [self addSubview:self.titleLabel];
 
