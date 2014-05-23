@@ -97,17 +97,20 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
         case noEffect:
             self.effectivenessLabel.text = @"Has no effect.";
             break;
+        case veryNotVeryEffective:
+            self.effectivenessLabel.text = @"It’s ¼ effective…";
+            break;
         case notVeryEffective:
-            self.effectivenessLabel.text = @"It's not very effective...";
+            self.effectivenessLabel.text = @"It’s not very effective…";
             break;
         case normallyEffective:
             self.effectivenessLabel.text = @"Normally effective.";
             break;
         case superEffective:
-            self.effectivenessLabel.text = @"It's super effective!";
+            self.effectivenessLabel.text = @"It’s super effective!";
             break;
         case superSuperEffective:
-            self.effectivenessLabel.text = @"It's 4x effective!";
+            self.effectivenessLabel.text = @"It’s 4x effective!";
             break;
         default:
             break;
@@ -134,13 +137,15 @@ float damageMultipliers[4] = {1.0, 0.0, 0.5, 2.0};
 
     float damage = damageMultipliers[firstEffectiveness] * damageMultipliers[secondEffectiveness];
 
-    if (damage == 0.0) return noEffect;
-    if (damage == 0.5) return notVeryEffective;
-    if (damage == 1.0) return normallyEffective;
-    if (damage == 2.0) return superEffective;
-    if (damage == 4.0) return superSuperEffective;
+    if (damage == 0.0)  return noEffect;
+    if (damage == 0.25) return veryNotVeryEffective;
+    if (damage == 0.5)  return notVeryEffective;
+    if (damage == 1.0)  return normallyEffective;
+    if (damage == 2.0)  return superEffective;
+    if (damage == 4.0)  return superSuperEffective;
 
-    return -1; // crash and burn
+    NSLog(@"Unknown damage amount: %f", damage);
+    return -1;
 }
 
 - (IBAction)swapPickers:(UIButton *)sender {
