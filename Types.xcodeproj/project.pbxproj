@@ -93,9 +93,8 @@
 				224C29C41807A4E800960D03 /* Images.xcassets */,
 				224C29AD1807A4E800960D03 /* Supporting Files */,
 			);
-			name = Types;
-			path = /Users/andrewclissold/Code/Types/Types;
-			sourceTree = "<absolute>";
+			path = Types;
+			sourceTree = "<group>";
 		};
 		224C29AD1807A4E800960D03 /* Supporting Files */ = {
 			isa = PBXGroup;
