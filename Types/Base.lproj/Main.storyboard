@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E33b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="CZ4-MO-1fc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E33b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CZ4-MO-1fc">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -14,17 +14,17 @@
                         <viewControllerLayoutGuide type="bottom" id="JrE-Xt-im4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2VE-Yg-loa">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Normally effective." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5m-rH-ytA">
-                                <rect key="frame" x="9" y="64" width="303" height="38.5"/>
+                                <rect key="frame" x="9" y="80" width="583" height="38.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="28"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="ICb-ge-1tG">
-                                <rect key="frame" x="47" y="191" width="265" height="162"/>
+                                <rect key="frame" x="47" y="223" width="545" height="162"/>
                                 <color key="tintColor" red="0.87075494259999997" green="0.0" blue="0.0094485673999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="CZ4-MO-1fc" id="U7h-KG-GTe"/>
@@ -32,7 +32,7 @@
                                 </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ES0-bN-Uu8">
-                                <rect key="frame" x="142" y="343" width="36" height="36"/>
+                                <rect key="frame" x="282" y="375" width="36" height="36"/>
                                 <state key="normal" image="Swap">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -43,7 +43,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="onf-wh-1c7">
-                                <rect key="frame" x="239" y="347" width="61" height="29"/>
+                                <rect key="frame" x="519" y="379" width="61" height="29"/>
                                 <segments>
                                     <segment title=" 1 "/>
                                     <segment title=" 2 "/>
@@ -53,7 +53,7 @@
                                 </connections>
                             </segmentedControl>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQY-bx-Ymp" customClass="UIToolbar">
-                                <rect key="frame" x="0.0" y="524" width="320" height="43"/>
+                                <rect key="frame" x="0.0" y="556" width="600" height="43"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="    Love Types? Rate it!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZy-Jd-zeV">
                                         <rect key="frame" x="0.0" y="0.0" width="266" height="43"/>
@@ -72,13 +72,13 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AttackTypeLabel" translatesAutoresizingMaskIntoConstraints="NO" id="o2Q-mW-A9Z">
-                                <rect key="frame" x="8" y="183" width="31" height="178"/>
+                                <rect key="frame" x="8" y="215" width="31" height="178"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpposingTypeLabel" translatesAutoresizingMaskIntoConstraints="NO" id="AnZ-f0-ZGP">
-                                <rect key="frame" x="8" y="364" width="31" height="177"/>
+                                <rect key="frame" x="8" y="396" width="31" height="177"/>
                             </imageView>
                             <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="6NE-wv-XWU">
-                                <rect key="frame" x="47" y="372" width="265" height="162"/>
+                                <rect key="frame" x="47" y="404" width="545" height="162"/>
                                 <connections>
                                     <outlet property="dataSource" destination="CZ4-MO-1fc" id="zeN-HX-NR2"/>
                                     <outlet property="delegate" destination="CZ4-MO-1fc" id="ZFp-4S-z7u"/>
@@ -130,7 +130,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="762" y="-457"/>
+            <point key="canvasLocation" x="1428.75" y="-482.74647887323943"/>
         </scene>
     </scenes>
     <resources>
@@ -140,10 +140,5 @@
         <image name="Swap" width="36" height="36"/>
         <image name="SwapHighlighted" width="36" height="36"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0094485673999999964" alpha="1" colorSpace="calibratedRGB"/>
 </document>
