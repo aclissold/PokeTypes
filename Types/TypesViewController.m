@@ -22,11 +22,6 @@ static const float kAlpha = 0.7;
 @property (weak, nonatomic) IBOutlet UIPickerView *topPickerView;
 @property (weak, nonatomic) IBOutlet UIPickerView *bottomPickerView;
 
-@property (weak, nonatomic) IBOutlet UILabel *attackTypeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *opposingTypeLabel;
-@property (weak, nonatomic) IBOutlet UIView *attackTypeView;
-@property (weak, nonatomic) IBOutlet UIView *opposingTypeView;
-
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (strong, nonatomic) CAGradientLayer *gradient;
 @property (strong, nonatomic) NSArray *typesArray;
@@ -57,13 +52,6 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
                        (id)[[UIColor colorWithRed:reds[bug] green:greens[bug] blue:blues[bug] alpha:kAlpha] CGColor],
                        (id)[[UIColor colorWithRed:reds[bug] green:greens[bug] blue:blues[bug] alpha:kAlpha] CGColor], nil];
     [self.view.layer insertSublayer:self.gradient atIndex:0];
-
-    // Make the labels vertical
-    self.attackTypeLabel.transform = CGAffineTransformMakeRotation(3 * M_PI_2);
-    self.opposingTypeLabel.transform = CGAffineTransformMakeRotation(3 * M_PI_2);
-
-    self.attackTypeView.layer.cornerRadius = 5.0f;
-    self.opposingTypeView.layer.cornerRadius = 5.0f;
 
     UIBarButtonItem *hideButton =
     [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop
