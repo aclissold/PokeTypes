@@ -12,7 +12,7 @@
 		224C29B11807A4E800960D03 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 224C29AF1807A4E800960D03 /* InfoPlist.strings */; };
 		224C29B31807A4E800960D03 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 224C29B21807A4E800960D03 /* main.m */; };
 		224C29B71807A4E800960D03 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 224C29B61807A4E800960D03 /* AppDelegate.m */; };
-		224C29BA1807A4E800960D03 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224C29B81807A4E800960D03 /* Main_iPhone.storyboard */; };
+		224C29BA1807A4E800960D03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224C29B81807A4E800960D03 /* Main.storyboard */; };
 		224C29C01807A4E800960D03 /* TypesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224C29BF1807A4E800960D03 /* TypesViewController.m */; };
 		224C29C51807A4E800960D03 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 224C29C41807A4E800960D03 /* Images.xcassets */; };
 		229685A31842923F008F9D40 /* PickerRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229685A21842923F008F9D40 /* PickerRowView.m */; };
@@ -29,7 +29,7 @@
 		224C29B41807A4E800960D03 /* Types-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Types-Prefix.pch"; sourceTree = "<group>"; };
 		224C29B51807A4E800960D03 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		224C29B61807A4E800960D03 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		224C29B91807A4E800960D03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		224C29B91807A4E800960D03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		224C29BE1807A4E800960D03 /* TypesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypesViewController.h; sourceTree = "<group>"; };
 		224C29BF1807A4E800960D03 /* TypesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TypesViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		224C29C41807A4E800960D03 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 			children = (
 				224C29B51807A4E800960D03 /* AppDelegate.h */,
 				224C29B61807A4E800960D03 /* AppDelegate.m */,
-				224C29B81807A4E800960D03 /* Main_iPhone.storyboard */,
+				224C29B81807A4E800960D03 /* Main.storyboard */,
 				22ED7BFC1847DC7400CED121 /* PokeBallFactory.h */,
 				22ED7BFD1847DC7400CED121 /* PokeBallFactory.m */,
 				229685A11842923F008F9D40 /* PickerRowView.h */,
@@ -165,7 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				224C29C51807A4E800960D03 /* Images.xcassets in Resources */,
-				224C29BA1807A4E800960D03 /* Main_iPhone.storyboard in Resources */,
+				224C29BA1807A4E800960D03 /* Main.storyboard in Resources */,
 				224C29B11807A4E800960D03 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,12 +196,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		224C29B81807A4E800960D03 /* Main_iPhone.storyboard */ = {
+		224C29B81807A4E800960D03 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				224C29B91807A4E800960D03 /* Base */,
 			);
-			name = Main_iPhone.storyboard;
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
