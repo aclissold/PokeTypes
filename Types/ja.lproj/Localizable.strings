@@ -1,3 +1,6 @@
+/* Attack type pill image name */
+"AttackTypePill" = "AttackTypePill~jp-JA";
+
 /* Bug type */
 "Bug" = "むし";
 
@@ -54,6 +57,9 @@
 
 /* 1x effectiveness description */
 "Normally effective." = "効果正常。";
+
+/* Opposing type pill image name */
+"OpposingTypePill" = "OpposingTypePill~jp-JA";
 
 /* Poison type */
 "Poison" = "どく";

@@ -27,6 +27,10 @@ static const float kAlpha = 0.7;
 @property (strong, nonatomic) NSArray *typesArray;
 @property (nonatomic) NSInteger lastSelectedRow;
 
+// For localization
+@property (strong, nonatomic) IBOutlet UIImageView *attackTypePill;
+@property (strong, nonatomic) IBOutlet UIImageView *opposingTypePill;
+
 @property (weak, nonatomic) IBOutlet UIToolbar *rateItView;
 
 @end
@@ -61,6 +65,11 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
     NSArray *items = @[space, hideButton];
     self.rateItView.items = items;
     self.rateItView.clipsToBounds = YES;
+
+    NSString *attackTypePillImageName = NSLocalizedString(@"AttackTypePill", @"Attack type pill image name");
+    NSString *opposingTypePillImageName = NSLocalizedString(@"OpposingTypePill", @"Opposing type pill image name");
+    self.attackTypePill.image = [UIImage imageNamed:attackTypePillImageName];
+    self.opposingTypePill.image = [UIImage imageNamed:opposingTypePillImageName];
 }
 
 - (void)updateEffectivenessLabelAndBackground {
