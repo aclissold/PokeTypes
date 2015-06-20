@@ -17,6 +17,7 @@
 		224C29C51807A4E800960D03 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 224C29C41807A4E800960D03 /* Images.xcassets */; };
 		229685A31842923F008F9D40 /* PickerRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229685A21842923F008F9D40 /* PickerRowView.m */; };
 		22ED7BFE1847DC7400CED121 /* PokeBallFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22ED7BFD1847DC7400CED121 /* PokeBallFactory.m */; };
+		B52E522B1B3279A700B58423 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B52E522D1B3279A700B58423 /* Localizable.strings */; };
 		B5AD6ADB1B2FB2C1005DF9BD /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5AD6ADA1B2FB2C1005DF9BD /* Launch Screen.xib */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,9 @@
 		229685A21842923F008F9D40 /* PickerRowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerRowView.m; sourceTree = "<group>"; };
 		22ED7BFC1847DC7400CED121 /* PokeBallFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PokeBallFactory.h; sourceTree = "<group>"; };
 		22ED7BFD1847DC7400CED121 /* PokeBallFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokeBallFactory.m; sourceTree = "<group>"; };
+		B52E52271B3277B700B58423 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		B52E52281B3277B700B58423 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B52E522C1B3279A700B58423 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B5AD6ADA1B2FB2C1005DF9BD /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,6 +106,7 @@
 		224C29AD1807A4E800960D03 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B52E522D1B3279A700B58423 /* Localizable.strings */,
 				224C29AE1807A4E800960D03 /* Types-Info.plist */,
 				224C29AF1807A4E800960D03 /* InfoPlist.strings */,
 				224C29B21807A4E800960D03 /* main.m */,
@@ -151,6 +156,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 224C299A1807A4E800960D03;
 			productRefGroup = 224C29A41807A4E800960D03 /* Products */;
@@ -167,6 +173,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B52E522B1B3279A700B58423 /* Localizable.strings in Resources */,
 				224C29C51807A4E800960D03 /* Images.xcassets in Resources */,
 				B5AD6ADB1B2FB2C1005DF9BD /* Launch Screen.xib in Resources */,
 				224C29BA1807A4E800960D03 /* Main.storyboard in Resources */,
@@ -196,6 +203,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				224C29B01807A4E800960D03 /* en */,
+				B52E52281B3277B700B58423 /* ja */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -204,8 +212,17 @@
 			isa = PBXVariantGroup;
 			children = (
 				224C29B91807A4E800960D03 /* Base */,
+				B52E52271B3277B700B58423 /* ja */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B52E522D1B3279A700B58423 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B52E522C1B3279A700B58423 /* ja */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

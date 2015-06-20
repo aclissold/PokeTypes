@@ -1,0 +1,72 @@
+/* Bug type */
+"Bug" = "むし";
+
+/* Dark type */
+"Dark" = "あく";
+
+/* Dragon type */
+"Dragon" = "ドラゴン";
+
+/* Electric type */
+"Electric" = "でんき";
+
+/* Fairy type */
+"Fairy" = "フェアリー";
+
+/* Fighting type */
+"Fighting" = "かくとう";
+
+/* Fire type */
+"Fire" = "ほのお";
+
+/* Flying type */
+"Flying" = "ひこう";
+
+/* Ghost type */
+"Ghost" = "ゴースト";
+
+/* Grass type */
+"Grass" = "くさ";
+
+/* Ground type */
+"Ground" = "じめん";
+
+/* 0x effectiveness description */
+"Has no effect." = "効果がない";
+
+/* Ice type */
+"Ice" = "こおり";
+
+/* 4x effectiveness description */
+"It’s 4x effective!" = "こうかはばつぐんだ‼︎";
+
+/* 1/2x effectiveness description */
+"It’s not very effective…" = "効果は今一つ…";
+
+/* 2x effectiveness description */
+"It’s super effective!" = "こうかはばつぐんだ！";
+
+/* 1/4x effectiveness description */
+"It’s ¼ effective…" = "効果は今一つ……";
+
+/* Normal type */
+"Normal" = "ノーマルタ";
+
+/* 1x effectiveness description */
+"Normally effective." = "効果正常。";
+
+/* Poison type */
+"Poison" = "どく";
+
+/* Psychic type */
+"Psychic" = "エスパー";
+
+/* Rock type */
+"Rock" = "いわ";
+
+/* Steel type */
+"Steel" = "はがね";
+
+/* Water type */
+"Water" = "みず";
+
