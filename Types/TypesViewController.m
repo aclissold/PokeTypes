@@ -83,22 +83,22 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
     }
     switch (effectiveness) {
         case noEffect:
-            self.effectivenessLabel.text = @"Has no effect.";
+            self.effectivenessLabel.text = NSLocalizedString(@"Has no effect.", @"0x effectiveness description");
             break;
         case veryNotVeryEffective:
-            self.effectivenessLabel.text = @"It’s ¼ effective…";
+            self.effectivenessLabel.text = NSLocalizedString(@"It’s ¼ effective…", @"1/4x effectiveness description");
             break;
         case notVeryEffective:
-            self.effectivenessLabel.text = @"It’s not very effective…";
+            self.effectivenessLabel.text = NSLocalizedString(@"It’s not very effective…", @"1/2x effectiveness description");
             break;
         case normallyEffective:
-            self.effectivenessLabel.text = @"Normally effective.";
+            self.effectivenessLabel.text = NSLocalizedString(@"Normally effective.", @"1x effectiveness description");
             break;
         case superEffective:
-            self.effectivenessLabel.text = @"It’s super effective!";
+            self.effectivenessLabel.text = NSLocalizedString(@"It’s super effective!", @"2x effectiveness description");
             break;
         case superSuperEffective:
-            self.effectivenessLabel.text = @"It’s 4x effective!";
+            self.effectivenessLabel.text = NSLocalizedString(@"It’s 4x effective!", @"4x effectiveness description");
             break;
         default:
             break;
