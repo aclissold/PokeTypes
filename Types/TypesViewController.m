@@ -243,8 +243,12 @@ static NSString * const appStoreURL = @"itms-apps://itunes.apple.com/app/id78472
 
 // The images are instantiated directly within this method as a workaround for a display bug
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
-    NSString *type = self.typesArray[row];
-    return [[PickerRowView alloc] initWithTitle:type image:[UIImage imageNamed:type]];
+    NSString *typeImageName = self.typesArray[row][0];
+    UIImage *typeImage = [UIImage imageNamed:typeImageName];
+
+    NSString *typeName = self.typesArray[row][1];
+
+    return [[PickerRowView alloc] initWithTitle:typeName image:typeImage];
 }
 
 @end

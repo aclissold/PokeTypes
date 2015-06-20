@@ -12,25 +12,25 @@
 
 + (NSArray *)initializeTypesArray {
     return @[
-             NSLocalizedString(@"Bug", @"Bug type"),
-             NSLocalizedString(@"Dark", @"Dark type"),
-             NSLocalizedString(@"Dragon", @"Dragon type"),
-             NSLocalizedString(@"Electric", @"Electric type"),
-             NSLocalizedString(@"Fairy", @"Fairy type"),
-             NSLocalizedString(@"Fighting", @"Fighting type"),
-             NSLocalizedString(@"Fire", @"Fire type"),
-             NSLocalizedString(@"Flying", @"Flying type"),
-             NSLocalizedString(@"Ghost", @"Ghost type"),
-             NSLocalizedString(@"Grass", @"Grass type"),
-             NSLocalizedString(@"Ground", @"Ground type"),
-             NSLocalizedString(@"Ice", @"Ice type"),
-             NSLocalizedString(@"Normal", @"Normal type"),
-             NSLocalizedString(@"Poison", @"Poison type"),
-             NSLocalizedString(@"Psychic", @"Psychic type"),
-             NSLocalizedString(@"Rock", @"Rock type"),
-             NSLocalizedString(@"Steel", @"Steel type"),
-             NSLocalizedString(@"Water", @"Water type")
-             ];
+             @[@"Bug", NSLocalizedString(@"Bug", @"Bug type")],
+             @[@"Dark", NSLocalizedString(@"Dark", @"Dark type")],
+             @[@"Dragon", NSLocalizedString(@"Dragon", @"Dragon type")],
+             @[@"Electric", NSLocalizedString(@"Electric", @"Electric type")],
+             @[@"Fairy", NSLocalizedString(@"Fairy", @"Fairy type")],
+             @[@"Fighting", NSLocalizedString(@"Fighting", @"Fighting type")],
+             @[@"Fire", NSLocalizedString(@"Fire", @"Fire type")],
+             @[@"Flying", NSLocalizedString(@"Flying", @"Flying type")],
+             @[@"Ghost", NSLocalizedString(@"Ghost", @"Ghost type")],
+             @[@"Grass", NSLocalizedString(@"Grass", @"Grass type")],
+             @[@"Ground", NSLocalizedString(@"Ground", @"Ground type")],
+             @[@"Ice", NSLocalizedString(@"Ice", @"Ice type")],
+             @[@"Normal", NSLocalizedString(@"Normal", @"Normal type")],
+             @[@"Poison", NSLocalizedString(@"Poison", @"Poison type")],
+             @[@"Psychic", NSLocalizedString(@"Psychic", @"Psychic type")],
+             @[@"Rock", NSLocalizedString(@"Rock", @"Rock type")],
+             @[@"Steel", NSLocalizedString(@"Steel", @"Steel type")],
+             @[@"Water", NSLocalizedString(@"Water", @"Water type")]
+    ];
 }
 
 + (void)initializeTypeMatchups:(int[18][18])typeMatchups {
