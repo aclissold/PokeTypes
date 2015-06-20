@@ -12,7 +12,7 @@
 
 static const float kAlpha = 0.7;
 
-@interface TypesViewController() {
+@interface TypesViewController() <UIPickerViewDelegate, UIPickerViewDataSource, UIAlertViewDelegate> {
     CGFloat reds[18], greens[18], blues[18];
     int typeMatchups[18][18];
 }
@@ -34,7 +34,6 @@ static const float kAlpha = 0.7;
 @end
 
 @implementation TypesViewController
-
 const CGFloat kPickerConstraintSize = -10.0;
 const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
 
@@ -150,9 +149,10 @@ float damageMultipliers[4] = {1.0, 0.0, 0.5, 2.0};
     [self updateEffectivenessLabelAndBackground];
 }
 
-#pragma mark - RateIt View Logic
+#pragma mark - Rate It Alert View Logic
 
 static NSString * const hasRatedKey = @"hasRated";
+static NSString * const tappedNoThanksKey = @"tappedNoThanks";
 static NSString * const setRemindMeDateKey = @"setShouldRemindDate";
 static NSString * const installDateKey = @"installDate";
 static NSString * const hasSeenItKey = @"hasSeenIt";
@@ -166,7 +166,8 @@ static const NSTimeInterval twoDays = 60*60*24*2;
 
 - (void)showRateItAlertIfNecessary {
     BOOL hasRated = [[NSUserDefaults standardUserDefaults] boolForKey:hasRatedKey];
-    if (hasRated) {
+    BOOL tappedNoThanks = [[NSUserDefaults standardUserDefaults] boolForKey:tappedNoThanksKey];
+    if (hasRated || tappedNoThanks) {
         return;
     }
 
@@ -195,13 +196,40 @@ static const NSTimeInterval twoDays = 60*60*24*2;
     }
 }
 
-- (IBAction)rateIt {
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:hasRatedKey];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:appStoreURL]];
+- (void)showRateItAlert {
+    NSString *title = NSLocalizedString(@"Love Types?",
+                                        @"App Store rating alert view title");
+    NSString *message = NSLocalizedString(@"If you enjoy using Types, I’d really appreciate it if you left a rating or wrote me a review in the App Store! 😀",
+                                          @"App Store rating alert view message");
+
+    NSString *noThanks = NSLocalizedString(@"No Thanks", @"App Store rating alert view dismiss forever button");
+    NSString *rateIt = NSLocalizedString(@"Rate It!", @"App Store rating alert view jump to App Store button");
+    NSString *remindMeLater = NSLocalizedString(@"Remind Me Later", @"App Store rating alert view remind me button");
+
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+                                                        message:message
+                                                       delegate:self
+                                              cancelButtonTitle:noThanks
+                                              otherButtonTitles:rateIt, remindMeLater, nil];
+    [alertView show];
 }
 
-- (void)showRateItAlert {
-    // TODO
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (buttonIndex) {
+        case 0:
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:tappedNoThanksKey];
+            break;
+        case 1:
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:hasRatedKey];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:appStoreURL]];
+            break;
+        case 2:
+            [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:setRemindMeDateKey];
+            break;
+        default:
+            NSLog(@"error: unexpected alert view button index: %ld", (long)buttonIndex);
+            break;
+    }
 }
 
 #pragma mark - UIPickerViewDelegate
