@@ -27,6 +27,10 @@ static const float kAlpha = 0.7;
 @property (strong, nonatomic) NSArray *typesArray;
 @property (nonatomic) NSInteger lastSelectedRow;
 
+// For localization
+@property (strong, nonatomic) IBOutlet UIImageView *attackTypePill;
+@property (strong, nonatomic) IBOutlet UIImageView *opposingTypePill;
+
 @property (weak, nonatomic) IBOutlet UIToolbar *rateItView;
 
 @end
@@ -61,6 +65,11 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
     NSArray *items = @[space, hideButton];
     self.rateItView.items = items;
     self.rateItView.clipsToBounds = YES;
+
+    NSString *attackTypePillImageName = NSLocalizedString(@"AttackTypePill", @"Attack type pill image name");
+    NSString *opposingTypePillImageName = NSLocalizedString(@"OpposingTypePill", @"Opposing type pill image name");
+    self.attackTypePill.image = [UIImage imageNamed:attackTypePillImageName];
+    self.opposingTypePill.image = [UIImage imageNamed:opposingTypePillImageName];
 }
 
 - (void)updateEffectivenessLabelAndBackground {
@@ -83,22 +92,22 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
     }
     switch (effectiveness) {
         case noEffect:
-            self.effectivenessLabel.text = @"Has no effect.";
+            self.effectivenessLabel.text = NSLocalizedString(@"Has no effect.", @"0x effectiveness description");
             break;
         case veryNotVeryEffective:
-            self.effectivenessLabel.text = @"It’s ¼ effective…";
+            self.effectivenessLabel.text = NSLocalizedString(@"It’s ¼ effective…", @"1/4x effectiveness description");
             break;
         case notVeryEffective:
-            self.effectivenessLabel.text = @"It’s not very effective…";
+            self.effectivenessLabel.text = NSLocalizedString(@"It’s not very effective…", @"1/2x effectiveness description");
             break;
         case normallyEffective:
-            self.effectivenessLabel.text = @"Normally effective.";
+            self.effectivenessLabel.text = NSLocalizedString(@"Normally effective.", @"1x effectiveness description");
             break;
         case superEffective:
-            self.effectivenessLabel.text = @"It’s super effective!";
+            self.effectivenessLabel.text = NSLocalizedString(@"It’s super effective!", @"2x effectiveness description");
             break;
         case superSuperEffective:
-            self.effectivenessLabel.text = @"It’s 4x effective!";
+            self.effectivenessLabel.text = NSLocalizedString(@"It’s 4x effective!", @"4x effectiveness description");
             break;
         default:
             break;
@@ -234,8 +243,12 @@ static NSString * const appStoreURL = @"itms-apps://itunes.apple.com/app/id78472
 
 // The images are instantiated directly within this method as a workaround for a display bug
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
-    NSString *type = self.typesArray[row];
-    return [[PickerRowView alloc] initWithTitle:type image:[UIImage imageNamed:type]];
+    NSString *typeImageName = self.typesArray[row][0];
+    UIImage *typeImage = [UIImage imageNamed:typeImageName];
+
+    NSString *typeName = self.typesArray[row][1];
+
+    return [[PickerRowView alloc] initWithTitle:typeName image:typeImage];
 }
 
 @end

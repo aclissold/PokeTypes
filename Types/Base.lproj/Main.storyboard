@@ -71,10 +71,10 @@
                                     <constraint firstAttribute="height" constant="43" id="Sn3-0k-XqF"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AttackTypeLabel" translatesAutoresizingMaskIntoConstraints="NO" id="o2Q-mW-A9Z">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AttackTypePill" translatesAutoresizingMaskIntoConstraints="NO" id="o2Q-mW-A9Z">
                                 <rect key="frame" x="8" y="215" width="31" height="178"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpposingTypeLabel" translatesAutoresizingMaskIntoConstraints="NO" id="AnZ-f0-ZGP">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpposingTypePill" translatesAutoresizingMaskIntoConstraints="NO" id="AnZ-f0-ZGP">
                                 <rect key="frame" x="8" y="396" width="31" height="177"/>
                             </imageView>
                             <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="6NE-wv-XWU">
@@ -116,8 +116,10 @@
                     </toolbarItems>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="attackTypePill" destination="o2Q-mW-A9Z" id="Vl1-XR-FcC"/>
                         <outlet property="bottomPickerView" destination="6NE-wv-XWU" id="Hga-1p-7Ay"/>
                         <outlet property="effectivenessLabel" destination="O5m-rH-ytA" id="9Yx-aY-tOU"/>
+                        <outlet property="opposingTypePill" destination="AnZ-f0-ZGP" id="C13-EU-byp"/>
                         <outlet property="rateItView" destination="fQY-bx-Ymp" id="yxh-Ay-0H9"/>
                         <outlet property="segmentedControl" destination="onf-wh-1c7" id="imc-m9-vCI"/>
                         <outlet property="topPickerView" destination="ICb-ge-1tG" id="ea3-Lh-p6a"/>
@@ -134,9 +136,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AttackTypeLabel" width="31" height="178"/>
+        <image name="AttackTypePill" width="31" height="178"/>
         <image name="Dark" width="30" height="30"/>
-        <image name="OpposingTypeLabel" width="31" height="177"/>
+        <image name="OpposingTypePill" width="31" height="177"/>
         <image name="Swap" width="36" height="36"/>
         <image name="SwapHighlighted" width="37" height="36"/>
     </resources>

@@ -1,0 +1,15 @@
+/* Class = "UIViewController"; title = "Types"; ObjectID = "CZ4-MO-1fc"; */
+"CZ4-MO-1fc.title" = "タイプ";
+
+/* Class = "UILabel"; text = "Normally effective."; ObjectID = "O5m-rH-ytA"; */
+"O5m-rH-ytA.text" = "効果正常。";
+
+/* Class = "UILabel"; text = "    Love Types? Rate it!"; ObjectID = "iZy-Jd-zeV"; */
+"iZy-Jd-zeV.text" = "    Love タイプ? Rate it!";
+
+/* Class = "UISegmentedControl"; onf-wh-1c7.segmentTitles[0] = " 1 "; ObjectID = "onf-wh-1c7"; */
+"onf-wh-1c7.segmentTitles[0]" = " 1 ";
+
+/* Class = "UISegmentedControl"; onf-wh-1c7.segmentTitles[1] = " 2 "; ObjectID = "onf-wh-1c7"; */
+"onf-wh-1c7.segmentTitles[1]" = " 2 ";
+

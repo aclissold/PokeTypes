@@ -11,10 +11,26 @@
 @implementation PokeBallFactory
 
 + (NSArray *)initializeTypesArray {
-
-    return @[@"Bug", @"Dark", @"Dragon", @"Electric", @"Fairy", @"Fighting",
-             @"Fire", @"Flying", @"Ghost", @"Grass", @"Ground", @"Ice",
-             @"Normal", @"Poison", @"Psychic", @"Rock", @"Steel", @"Water"];
+    return @[
+             @[@"Bug", NSLocalizedString(@"Bug", @"Bug type")],
+             @[@"Dark", NSLocalizedString(@"Dark", @"Dark type")],
+             @[@"Dragon", NSLocalizedString(@"Dragon", @"Dragon type")],
+             @[@"Electric", NSLocalizedString(@"Electric", @"Electric type")],
+             @[@"Fairy", NSLocalizedString(@"Fairy", @"Fairy type")],
+             @[@"Fighting", NSLocalizedString(@"Fighting", @"Fighting type")],
+             @[@"Fire", NSLocalizedString(@"Fire", @"Fire type")],
+             @[@"Flying", NSLocalizedString(@"Flying", @"Flying type")],
+             @[@"Ghost", NSLocalizedString(@"Ghost", @"Ghost type")],
+             @[@"Grass", NSLocalizedString(@"Grass", @"Grass type")],
+             @[@"Ground", NSLocalizedString(@"Ground", @"Ground type")],
+             @[@"Ice", NSLocalizedString(@"Ice", @"Ice type")],
+             @[@"Normal", NSLocalizedString(@"Normal", @"Normal type")],
+             @[@"Poison", NSLocalizedString(@"Poison", @"Poison type")],
+             @[@"Psychic", NSLocalizedString(@"Psychic", @"Psychic type")],
+             @[@"Rock", NSLocalizedString(@"Rock", @"Rock type")],
+             @[@"Steel", NSLocalizedString(@"Steel", @"Steel type")],
+             @[@"Water", NSLocalizedString(@"Water", @"Water type")]
+    ];
 }
 
 + (void)initializeTypeMatchups:(int[18][18])typeMatchups {
