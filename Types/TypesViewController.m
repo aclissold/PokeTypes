@@ -31,8 +31,6 @@ static const float kAlpha = 0.7;
 @property (strong, nonatomic) IBOutlet UIImageView *attackTypePill;
 @property (strong, nonatomic) IBOutlet UIImageView *opposingTypePill;
 
-@property (weak, nonatomic) IBOutlet UIToolbar *rateItView;
-
 @end
 
 @implementation TypesViewController
@@ -56,15 +54,6 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
                        (id)[[UIColor colorWithRed:reds[bug] green:greens[bug] blue:blues[bug] alpha:kAlpha] CGColor],
                        (id)[[UIColor colorWithRed:reds[bug] green:greens[bug] blue:blues[bug] alpha:kAlpha] CGColor], nil];
     [self.view.layer insertSublayer:self.gradient atIndex:0];
-
-    UIBarButtonItem *hideButton =
-    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop
-                                                  target:self
-                                                  action:@selector(hideRateItView)];
-    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    NSArray *items = @[space, hideButton];
-    self.rateItView.items = items;
-    self.rateItView.clipsToBounds = YES;
 
     NSString *attackTypePillImageName = NSLocalizedString(@"AttackTypePill", @"Attack type pill image name");
     NSString *opposingTypePillImageName = NSLocalizedString(@"OpposingTypePill", @"Opposing type pill image name");
@@ -164,16 +153,18 @@ float damageMultipliers[4] = {1.0, 0.0, 0.5, 2.0};
 #pragma mark - RateIt View Logic
 
 static NSString * const hasRatedKey = @"hasRated";
+static NSString * const setRemindMeDateKey = @"setShouldRemindDate";
 static NSString * const installDateKey = @"installDate";
 static NSString * const hasSeenItKey = @"hasSeenIt";
 static NSString * const appStoreURL = @"itms-apps://itunes.apple.com/app/id784727885";
+static const NSTimeInterval twoDays = 60*60*24*2;
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self showRateItViewIfNecessary];
+    [self showRateItAlertIfNecessary];
 }
 
-- (void)showRateItViewIfNecessary {
+- (void)showRateItAlertIfNecessary {
     BOOL hasRated = [[NSUserDefaults standardUserDefaults] boolForKey:hasRatedKey];
     if (hasRated) {
         return;
@@ -185,43 +176,32 @@ static NSString * const appStoreURL = @"itms-apps://itunes.apple.com/app/id78472
         return;
     }
 
-    CGRect frame = self.rateItView.frame;
-    frame.origin.y = CGRectGetHeight(self.view.bounds);
-    self.rateItView.frame = frame;
-    self.rateItView.hidden = NO;
+    NSDate *setRemindMeDate = (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:setRemindMeDateKey];
 
     NSTimeInterval timeIntervalSinceInstall = [[NSDate date] timeIntervalSinceDate:installDate];
+    NSTimeInterval timeIntervalSinceSetRemindMe = 0;
+    if (setRemindMeDate != nil) {
+        timeIntervalSinceSetRemindMe = [[NSDate date] timeIntervalSinceDate:setRemindMeDate];
+    }
+
     BOOL hasSeenIt = [[NSUserDefaults standardUserDefaults] boolForKey:hasSeenItKey];
-    if (timeIntervalSinceInstall > 60*60*24*10) { // 10 days
-        [self showRateItView];
-        // Just assume the user rated it to avoid bothering them anymore
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:hasRatedKey];
-    } else if (timeIntervalSinceInstall > 60*60*24*2 && !hasSeenIt) { // 2 days
-        [self showRateItView];
+
+    if (timeIntervalSinceInstall > twoDays && !hasSeenIt) {
+        [self showRateItAlert];
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:hasSeenItKey];
+    } else if (timeIntervalSinceSetRemindMe > twoDays) {
+        [self showRateItAlert];
+        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:setRemindMeDateKey];
     }
 }
 
 - (IBAction)rateIt {
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:hasRatedKey];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:appStoreURL]];
-    [self hideRateItView];
 }
 
-- (void)showRateItView {
-    [self animateRateItViewByY:-self.rateItView.frame.size.height];
-}
-
-- (void)hideRateItView {
-    [self animateRateItViewByY:self.rateItView.frame.size.height];
-}
-
-- (void)animateRateItViewByY:(CGFloat)y {
-    CGRect frame = self.rateItView.frame;
-    frame.origin.y += y;
-    [UIView animateWithDuration:0.25 delay:0.1 options:UIViewAnimationOptionCurveEaseIn animations:^{
-        self.rateItView.frame = frame;
-    } completion:NULL];
+- (void)showRateItAlert {
+    // TODO
 }
 
 #pragma mark - UIPickerViewDelegate
