@@ -1,6 +1,9 @@
 /* Attack type pill image name */
 "AttackTypePill" = "AttackTypePill~jp-JA";
 
+/* Horizontal attack type pill image name */
+"AttackTypePillHorizontal" = "AttackTypePillHorizontal~jp-JA";
+
 /* Bug type */
 "Bug" = "むし";
 
@@ -69,6 +72,9 @@
 
 /* Opposing type pill image name */
 "OpposingTypePill" = "OpposingTypePill~jp-JA";
+
+/* Horizontal opposing type pill image name */
+"OpposingTypePillHorizontal" = "OpposingTypePillHorizontal~jp-JA";
 
 /* Poison type */
 "Poison" = "どく";

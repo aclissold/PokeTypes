@@ -43,7 +43,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="onf-wh-1c7">
-                                <rect key="frame" x="519" y="379" width="61" height="29"/>
+                                <rect key="frame" x="523" y="379" width="61" height="29"/>
                                 <segments>
                                     <segment title=" 1 "/>
                                     <segment title=" 2 "/>
@@ -65,37 +65,97 @@
                                     <outlet property="delegate" destination="CZ4-MO-1fc" id="ZFp-4S-z7u"/>
                                 </connections>
                             </pickerView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AttackTypePillHorizontal" translatesAutoresizingMaskIntoConstraints="NO" id="Ikf-Dd-wc6">
+                                <rect key="frame" x="8" y="396" width="31" height="177"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpposingTypePillHorizontal" translatesAutoresizingMaskIntoConstraints="NO" id="D3b-Rw-sJT">
+                                <rect key="frame" x="8" y="396" width="31" height="177"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="JrE-Xt-im4" firstAttribute="top" secondItem="ICb-ge-1tG" secondAttribute="bottom" constant="-10" id="0sB-Gg-IJJ"/>
                             <constraint firstItem="o2Q-mW-A9Z" firstAttribute="centerY" secondItem="ICb-ge-1tG" secondAttribute="centerY" id="4XD-wU-BRt"/>
                             <constraint firstItem="JrE-Xt-im4" firstAttribute="top" secondItem="6NE-wv-XWU" secondAttribute="bottom" constant="-10" id="6bi-2e-YRi"/>
+                            <constraint firstItem="Ikf-Dd-wc6" firstAttribute="centerY" secondItem="D3b-Rw-sJT" secondAttribute="centerY" id="9ZV-dz-jIG"/>
                             <constraint firstAttribute="centerX" secondItem="ES0-bN-Uu8" secondAttribute="centerX" id="CD7-e8-4ZU"/>
                             <constraint firstItem="o2Q-mW-A9Z" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" constant="8" id="DmP-p5-n7X"/>
+                            <constraint firstItem="Ikf-Dd-wc6" firstAttribute="centerX" secondItem="ICb-ge-1tG" secondAttribute="centerX" constant="0.5" id="EXh-em-SYD"/>
+                            <constraint firstItem="D3b-Rw-sJT" firstAttribute="leading" secondItem="6NE-wv-XWU" secondAttribute="leading" id="HfA-0N-heM"/>
+                            <constraint firstItem="ES0-bN-Uu8" firstAttribute="centerY" secondItem="6NE-wv-XWU" secondAttribute="centerY" id="Ktk-sN-Nuv"/>
                             <constraint firstAttribute="centerY" secondItem="O5m-rH-ytA" secondAttribute="centerY" constant="201" id="M7l-61-RXh"/>
                             <constraint firstAttribute="trailing" secondItem="6NE-wv-XWU" secondAttribute="trailing" constant="8" id="Q3Y-gR-XHb"/>
-                            <constraint firstAttribute="trailing" secondItem="onf-wh-1c7" secondAttribute="trailing" constant="20" id="SLa-ws-9xP"/>
+                            <constraint firstAttribute="trailing" secondItem="onf-wh-1c7" secondAttribute="trailing" constant="16" id="SLa-ws-9xP"/>
                             <constraint firstItem="6NE-wv-XWU" firstAttribute="leading" secondItem="AnZ-f0-ZGP" secondAttribute="trailing" constant="8" id="U0L-fG-B2F"/>
+                            <constraint firstItem="onf-wh-1c7" firstAttribute="centerY" secondItem="D3b-Rw-sJT" secondAttribute="centerY" id="fGL-ww-nHs"/>
+                            <constraint firstItem="ICb-ge-1tG" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" constant="8" id="fiZ-8g-Iec"/>
                             <constraint firstItem="6NE-wv-XWU" firstAttribute="top" secondItem="ES0-bN-Uu8" secondAttribute="bottom" constant="-7" id="hMc-8j-Dm0"/>
                             <constraint firstItem="AnZ-f0-ZGP" firstAttribute="centerY" secondItem="6NE-wv-XWU" secondAttribute="centerY" id="lXz-Nk-7HB"/>
                             <constraint firstItem="ES0-bN-Uu8" firstAttribute="top" secondItem="ICb-ge-1tG" secondAttribute="bottom" constant="-10" id="oeE-RO-8tb"/>
                             <constraint firstItem="O5m-rH-ytA" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" constant="9" id="p6q-Ra-DfP"/>
+                            <constraint firstItem="6NE-wv-XWU" firstAttribute="top" secondItem="ICb-ge-1tG" secondAttribute="bottom" constant="-10" id="slz-vH-Vr8"/>
+                            <constraint firstItem="6NE-wv-XWU" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" constant="47" id="wYA-nH-hm8"/>
                             <constraint firstItem="6NE-wv-XWU" firstAttribute="top" secondItem="onf-wh-1c7" secondAttribute="bottom" constant="-3" id="wvj-GL-ABo"/>
                             <constraint firstAttribute="trailing" secondItem="ICb-ge-1tG" secondAttribute="trailing" constant="8" id="yGI-hE-8YZ"/>
                             <constraint firstAttribute="trailing" secondItem="O5m-rH-ytA" secondAttribute="trailing" constant="8" id="yi2-mY-LMB"/>
                             <constraint firstItem="ICb-ge-1tG" firstAttribute="leading" secondItem="o2Q-mW-A9Z" secondAttribute="trailing" constant="8" id="zuP-pQ-0j7"/>
                             <constraint firstItem="AnZ-f0-ZGP" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" constant="8" id="zyK-5l-dWI"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Ikf-Dd-wc6"/>
+                                <exclude reference="D3b-Rw-sJT"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="fiZ-8g-Iec"/>
+                                <exclude reference="slz-vH-Vr8"/>
+                                <exclude reference="wYA-nH-hm8"/>
+                                <exclude reference="Ktk-sN-Nuv"/>
+                                <exclude reference="0sB-Gg-IJJ"/>
+                                <exclude reference="fGL-ww-nHs"/>
+                                <exclude reference="HfA-0N-heM"/>
+                                <exclude reference="9ZV-dz-jIG"/>
+                                <exclude reference="EXh-em-SYD"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="subviews">
+                                <exclude reference="o2Q-mW-A9Z"/>
+                                <exclude reference="AnZ-f0-ZGP"/>
+                                <include reference="Ikf-Dd-wc6"/>
+                                <include reference="D3b-Rw-sJT"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="4XD-wU-BRt"/>
+                                <exclude reference="DmP-p5-n7X"/>
+                                <include reference="fiZ-8g-Iec"/>
+                                <exclude reference="yGI-hE-8YZ"/>
+                                <exclude reference="zuP-pQ-0j7"/>
+                                <exclude reference="lXz-Nk-7HB"/>
+                                <exclude reference="zyK-5l-dWI"/>
+                                <exclude reference="U0L-fG-B2F"/>
+                                <exclude reference="hMc-8j-Dm0"/>
+                                <include reference="Ktk-sN-Nuv"/>
+                                <exclude reference="oeE-RO-8tb"/>
+                                <include reference="0sB-Gg-IJJ"/>
+                                <include reference="fGL-ww-nHs"/>
+                                <include reference="HfA-0N-heM"/>
+                                <include reference="9ZV-dz-jIG"/>
+                                <include reference="EXh-em-SYD"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="attackTypePickerView" destination="ICb-ge-1tG" id="dab-We-U60"/>
                         <outlet property="attackTypePill" destination="o2Q-mW-A9Z" id="Vl1-XR-FcC"/>
-                        <outlet property="bottomPickerView" destination="6NE-wv-XWU" id="Hga-1p-7Ay"/>
+                        <outlet property="attackTypePillHorizontal" destination="Ikf-Dd-wc6" id="eq3-rr-9wG"/>
                         <outlet property="effectivenessLabel" destination="O5m-rH-ytA" id="9Yx-aY-tOU"/>
+                        <outlet property="opposingTypePickerView" destination="6NE-wv-XWU" id="eZO-Cb-VDp"/>
                         <outlet property="opposingTypePill" destination="AnZ-f0-ZGP" id="C13-EU-byp"/>
+                        <outlet property="opposingTypePillHorizontal" destination="D3b-Rw-sJT" id="F9w-wX-3Mc"/>
                         <outlet property="segmentedControl" destination="onf-wh-1c7" id="imc-m9-vCI"/>
-                        <outlet property="topPickerView" destination="ICb-ge-1tG" id="ea3-Lh-p6a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
@@ -105,8 +165,10 @@
     </scenes>
     <resources>
         <image name="AttackTypePill" width="31" height="178"/>
+        <image name="AttackTypePillHorizontal" width="177" height="32"/>
         <image name="Dark" width="30" height="30"/>
         <image name="OpposingTypePill" width="31" height="177"/>
+        <image name="OpposingTypePillHorizontal" width="177" height="32"/>
         <image name="Swap" width="36" height="36"/>
         <image name="SwapHighlighted" width="37" height="36"/>
     </resources>

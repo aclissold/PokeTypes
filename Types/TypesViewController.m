@@ -21,8 +21,8 @@ static const float kAlpha = 0.7;
 
 @property (weak, nonatomic) IBOutlet UILabel *effectivenessLabel;
 
-@property (weak, nonatomic) IBOutlet UIPickerView *topPickerView;
-@property (weak, nonatomic) IBOutlet UIPickerView *bottomPickerView;
+@property (weak, nonatomic) IBOutlet UIPickerView *attackTypePickerView;
+@property (weak, nonatomic) IBOutlet UIPickerView *opposingTypePickerView;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (strong, nonatomic) CAGradientLayer *gradient;
@@ -32,8 +32,10 @@ static const float kAlpha = 0.7;
 @property (nonatomic, strong) RateItAlertController *rateItAlertController;
 
 // For localization
-@property (strong, nonatomic) IBOutlet UIImageView *attackTypePill;
-@property (strong, nonatomic) IBOutlet UIImageView *opposingTypePill;
+@property (weak, nonatomic) IBOutlet UIImageView *attackTypePill;
+@property (weak, nonatomic) IBOutlet UIImageView *opposingTypePill;
+@property (weak, nonatomic) IBOutlet UIImageView *attackTypePillHorizontal;
+@property (weak, nonatomic) IBOutlet UIImageView *opposingTypePillHorizontal;
 
 @end
 
@@ -54,18 +56,22 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
 
     // Add the gradient background
     self.gradient = [CAGradientLayer layer];
-    self.gradient.frame = self.view.bounds;
     self.gradient.colors = [NSArray arrayWithObjects:
                        (id)[[UIColor colorWithRed:reds[bug] green:greens[bug] blue:blues[bug] alpha:kAlpha] CGColor],
                        (id)[[UIColor colorWithRed:reds[bug] green:greens[bug] blue:blues[bug] alpha:kAlpha] CGColor], nil];
     [self.view.layer insertSublayer:self.gradient atIndex:0];
+    [self updateGradientFrame];
 
     self.rateItAlertController = [[RateItAlertController alloc] init];
 
     NSString *attackTypePillImageName = NSLocalizedString(@"AttackTypePill", @"Attack type pill image name");
     NSString *opposingTypePillImageName = NSLocalizedString(@"OpposingTypePill", @"Opposing type pill image name");
+    NSString *attackTypePillHorizontalImageName = NSLocalizedString(@"AttackTypePillHorizontal", @"Horizontal attack type pill image name");
+    NSString *opposingTypePillHorizontalImageName = NSLocalizedString(@"OpposingTypePillHorizontal", @"Horizontal opposing type pill image name");
     self.attackTypePill.image = [UIImage imageNamed:attackTypePillImageName];
     self.opposingTypePill.image = [UIImage imageNamed:opposingTypePillImageName];
+    self.attackTypePillHorizontal.image = [UIImage imageNamed:attackTypePillHorizontalImageName];
+    self.opposingTypePillHorizontal.image = [UIImage imageNamed:opposingTypePillHorizontalImageName];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -73,14 +79,40 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
     [self.rateItAlertController showRateItAlertIfNecessary];
 }
 
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    [self updateGradientFrame];
+}
+
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+    [super traitCollectionDidChange:previousTraitCollection];
+    [self updateGradientFrame];
+}
+
+- (void)updateGradientFrame {
+    BOOL isRegularWidthRegularHeight;
+    if ([UITraitCollection class]) {
+        isRegularWidthRegularHeight =
+        (self.traitCollection.verticalSizeClass == UIUserInterfaceSizeClassRegular) &&
+        (self.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassRegular);
+    } else {
+        isRegularWidthRegularHeight =
+        [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad;
+    }
+
+    CGFloat angle = isRegularWidthRegularHeight ? -M_PI_2 : 0;
+    CGAffineTransform rotationTransform = CGAffineTransformMakeRotation(angle);
+    self.gradient.transform = CATransform3DMakeAffineTransform(rotationTransform);
+    self.gradient.frame = self.view.bounds;
+}
+
 #pragma mark - Primary Logic
 
 - (void)updateEffectivenessLabelAndBackground {
-    NSInteger i  = [self.topPickerView selectedRowInComponent:0];
-    NSInteger j = [self.bottomPickerView selectedRowInComponent:0];
+    NSInteger i  = [self.attackTypePickerView selectedRowInComponent:0];
+    NSInteger j = [self.opposingTypePickerView selectedRowInComponent:0];
     NSInteger k = -1;
     if (self.segmentedControl.selectedSegmentIndex == 1) {
-        k = [self.bottomPickerView selectedRowInComponent:1];
+        k = [self.opposingTypePickerView selectedRowInComponent:1];
     }
 
     int effectiveness;
@@ -149,25 +181,29 @@ float damageMultipliers[4] = {1.0, 0.0, 0.5, 2.0};
 }
 
 - (IBAction)swapPickers:(UIButton *)sender {
-    NSInteger firstPickerRow = [self.topPickerView selectedRowInComponent:0];
-    NSInteger secondPickerRow = [self.bottomPickerView selectedRowInComponent:0];
-    [self.topPickerView selectRow:secondPickerRow inComponent:0 animated:YES];
-    [self.bottomPickerView selectRow:firstPickerRow inComponent:0 animated:YES];
+    NSInteger firstPickerRow = [self.attackTypePickerView selectedRowInComponent:0];
+    NSInteger secondPickerRow = [self.opposingTypePickerView selectedRowInComponent:0];
+    [self.attackTypePickerView selectRow:secondPickerRow inComponent:0 animated:YES];
+    [self.opposingTypePickerView selectRow:firstPickerRow inComponent:0 animated:YES];
     [self updateEffectivenessLabelAndBackground];
 }
 
 - (IBAction)segmentedControlChanged:(UISegmentedControl *)segmentedControl {
-    [self.bottomPickerView reloadAllComponents];
+    [self.opposingTypePickerView reloadAllComponents];
     if (segmentedControl.selectedSegmentIndex == 1) {
-        [self.bottomPickerView selectRow:self.lastSelectedRow inComponent:1 animated:NO];
+        [self.opposingTypePickerView selectRow:self.lastSelectedRow inComponent:1 animated:NO];
     }
     [self updateEffectivenessLabelAndBackground];
 }
 
 #pragma mark - UIPickerViewDelegate
 
-- (NSInteger) numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return self.segmentedControl.selectedSegmentIndex + 1;
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    if (pickerView == self.opposingTypePickerView) {
+        return self.segmentedControl.selectedSegmentIndex + 1;
+    }
+
+    return 1;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
