@@ -6,13 +6,15 @@
 //  Copyright (c) 2014 Andrew Clissold. All rights reserved.
 //
 
-#import "PokeBallFactory.h"
 #import "TypesViewController.h"
+
 #import "PickerRowView.h"
+#import "PokeBallFactory.h"
+#import "RateItAlertController.h"
 
 static const float kAlpha = 0.7;
 
-@interface TypesViewController() <UIPickerViewDelegate, UIPickerViewDataSource, UIAlertViewDelegate> {
+@interface TypesViewController() <UIPickerViewDelegate, UIPickerViewDataSource> {
     CGFloat reds[18], greens[18], blues[18];
     int typeMatchups[18][18];
 }
@@ -27,6 +29,8 @@ static const float kAlpha = 0.7;
 @property (strong, nonatomic) NSArray *typesArray;
 @property (nonatomic) NSInteger lastSelectedRow;
 
+@property (nonatomic, strong) RateItAlertController *rateItAlertController;
+
 // For localization
 @property (strong, nonatomic) IBOutlet UIImageView *attackTypePill;
 @property (strong, nonatomic) IBOutlet UIImageView *opposingTypePill;
@@ -36,6 +40,8 @@ static const float kAlpha = 0.7;
 @implementation TypesViewController
 const CGFloat kPickerConstraintSize = -10.0;
 const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
+
+#pragma mark - View Controller Lifecycle
 
 - (void)viewDidLoad
 {
@@ -54,11 +60,20 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
                        (id)[[UIColor colorWithRed:reds[bug] green:greens[bug] blue:blues[bug] alpha:kAlpha] CGColor], nil];
     [self.view.layer insertSublayer:self.gradient atIndex:0];
 
+    self.rateItAlertController = [[RateItAlertController alloc] init];
+
     NSString *attackTypePillImageName = NSLocalizedString(@"AttackTypePill", @"Attack type pill image name");
     NSString *opposingTypePillImageName = NSLocalizedString(@"OpposingTypePill", @"Opposing type pill image name");
     self.attackTypePill.image = [UIImage imageNamed:attackTypePillImageName];
     self.opposingTypePill.image = [UIImage imageNamed:opposingTypePillImageName];
 }
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.rateItAlertController showRateItAlertIfNecessary];
+}
+
+#pragma mark - Primary Logic
 
 - (void)updateEffectivenessLabelAndBackground {
     NSInteger i  = [self.topPickerView selectedRowInComponent:0];
@@ -149,89 +164,6 @@ float damageMultipliers[4] = {1.0, 0.0, 0.5, 2.0};
     [self updateEffectivenessLabelAndBackground];
 }
 
-#pragma mark - Rate It Alert View Logic
-
-static NSString * const hasRatedKey = @"hasRated";
-static NSString * const tappedNoThanksKey = @"tappedNoThanks";
-static NSString * const setRemindMeDateKey = @"setShouldRemindDate";
-static NSString * const installDateKey = @"installDate";
-static NSString * const hasSeenItKey = @"hasSeenIt";
-static NSString * const appStoreURL = @"itms-apps://itunes.apple.com/app/id784727885";
-static const NSTimeInterval twoDays = 60*60*24*2;
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self showRateItAlertIfNecessary];
-}
-
-- (void)showRateItAlertIfNecessary {
-    BOOL hasRated = [[NSUserDefaults standardUserDefaults] boolForKey:hasRatedKey];
-    BOOL tappedNoThanks = [[NSUserDefaults standardUserDefaults] boolForKey:tappedNoThanksKey];
-    if (hasRated || tappedNoThanks) {
-        return;
-    }
-
-    NSDate *installDate = (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:installDateKey];
-    if (installDate == nil) {
-        [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:installDateKey];
-        return;
-    }
-
-    NSDate *setRemindMeDate = (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:setRemindMeDateKey];
-
-    NSTimeInterval timeIntervalSinceInstall = [[NSDate date] timeIntervalSinceDate:installDate];
-    NSTimeInterval timeIntervalSinceSetRemindMe = 0;
-    if (setRemindMeDate != nil) {
-        timeIntervalSinceSetRemindMe = [[NSDate date] timeIntervalSinceDate:setRemindMeDate];
-    }
-
-    BOOL hasSeenIt = [[NSUserDefaults standardUserDefaults] boolForKey:hasSeenItKey];
-
-    if (timeIntervalSinceInstall > twoDays && !hasSeenIt) {
-        [self showRateItAlert];
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:hasSeenItKey];
-    } else if (timeIntervalSinceSetRemindMe > twoDays) {
-        [self showRateItAlert];
-        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:setRemindMeDateKey];
-    }
-}
-
-- (void)showRateItAlert {
-    NSString *title = NSLocalizedString(@"Love Types?",
-                                        @"App Store rating alert view title");
-    NSString *message = NSLocalizedString(@"If you enjoy using Types, I’d really appreciate it if you left a rating or wrote me a review in the App Store! 😀",
-                                          @"App Store rating alert view message");
-
-    NSString *noThanks = NSLocalizedString(@"No Thanks", @"App Store rating alert view dismiss forever button");
-    NSString *rateIt = NSLocalizedString(@"Rate It!", @"App Store rating alert view jump to App Store button");
-    NSString *remindMeLater = NSLocalizedString(@"Remind Me Later", @"App Store rating alert view remind me button");
-
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
-                                                        message:message
-                                                       delegate:self
-                                              cancelButtonTitle:noThanks
-                                              otherButtonTitles:rateIt, remindMeLater, nil];
-    [alertView show];
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    switch (buttonIndex) {
-        case 0:
-            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:tappedNoThanksKey];
-            break;
-        case 1:
-            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:hasRatedKey];
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:appStoreURL]];
-            break;
-        case 2:
-            [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:setRemindMeDateKey];
-            break;
-        default:
-            NSLog(@"error: unexpected alert view button index: %ld", (long)buttonIndex);
-            break;
-    }
-}
-
 #pragma mark - UIPickerViewDelegate
 
 - (NSInteger) numberOfComponentsInPickerView:(UIPickerView *)pickerView {
@@ -249,8 +181,8 @@ static const NSTimeInterval twoDays = 60*60*24*2;
     }
 }
 
-// The images are instantiated directly within this method as a workaround for a display bug
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
+    // The images are instantiated directly within this method as a workaround for a display bug.
     NSString *typeImageName = self.typesArray[row][0];
     UIImage *typeImage = [UIImage imageNamed:typeImageName];
 
