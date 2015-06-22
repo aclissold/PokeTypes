@@ -172,8 +172,12 @@ float damageMultipliers[4] = {1.0, 0.0, 0.5, 2.0};
 
 #pragma mark - UIPickerViewDelegate
 
-- (NSInteger) numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return self.segmentedControl.selectedSegmentIndex + 1;
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    if (pickerView == self.bottomPickerView) {
+        return self.segmentedControl.selectedSegmentIndex + 1;
+    }
+
+    return 1;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
