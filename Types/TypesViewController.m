@@ -56,11 +56,11 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
 
     // Add the gradient background
     self.gradient = [CAGradientLayer layer];
-    self.gradient.frame = self.view.bounds;
     self.gradient.colors = [NSArray arrayWithObjects:
                        (id)[[UIColor colorWithRed:reds[bug] green:greens[bug] blue:blues[bug] alpha:kAlpha] CGColor],
                        (id)[[UIColor colorWithRed:reds[bug] green:greens[bug] blue:blues[bug] alpha:kAlpha] CGColor], nil];
     [self.view.layer insertSublayer:self.gradient atIndex:0];
+    [self updateGradientFrame];
 
     self.rateItAlertController = [[RateItAlertController alloc] init];
 
@@ -77,6 +77,32 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.rateItAlertController showRateItAlertIfNecessary];
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    [self updateGradientFrame];
+}
+
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+    [super traitCollectionDidChange:previousTraitCollection];
+    [self updateGradientFrame];
+}
+
+- (void)updateGradientFrame {
+    BOOL isRegularWidthRegularHeight;
+    if ([UITraitCollection class]) {
+        isRegularWidthRegularHeight =
+        (self.traitCollection.verticalSizeClass == UIUserInterfaceSizeClassRegular) &&
+        (self.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassRegular);
+    } else {
+        isRegularWidthRegularHeight =
+        [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad;
+    }
+
+    CGFloat angle = isRegularWidthRegularHeight ? -M_PI_2 : 0;
+    CGAffineTransform rotationTransform = CGAffineTransformMakeRotation(angle);
+    self.gradient.transform = CATransform3DMakeAffineTransform(rotationTransform);
+    self.gradient.frame = self.view.bounds;
 }
 
 #pragma mark - Primary Logic
