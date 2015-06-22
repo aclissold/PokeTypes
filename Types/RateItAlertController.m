@@ -17,7 +17,6 @@ static NSString * const hasRatedKey = @"hasRated";
 static NSString * const tappedNoThanksKey = @"tappedNoThanks";
 static NSString * const setRemindMeDateKey = @"setShouldRemindDate";
 static NSString * const installDateKey = @"installDate";
-static NSString * const hasSeenItKey = @"hasSeenIt";
 static NSString * const appStoreURL = @"itms-apps://itunes.apple.com/app/id784727885";
 
 static const NSTimeInterval twoDays = 60*60*24*2;
@@ -31,6 +30,7 @@ static const NSTimeInterval twoDays = 60*60*24*2;
 
     NSDate *installDate = (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:installDateKey];
     if (installDate == nil) {
+        // First run.
         [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:installDateKey];
         return;
     }
@@ -43,14 +43,13 @@ static const NSTimeInterval twoDays = 60*60*24*2;
         timeIntervalSinceSetRemindMe = [[NSDate date] timeIntervalSinceDate:setRemindMeDate];
     }
 
-    BOOL hasSeenIt = [[NSUserDefaults standardUserDefaults] boolForKey:hasSeenItKey];
-
-    if (timeIntervalSinceInstall > twoDays && !hasSeenIt) {
-        [self showRateItAlert];
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:hasSeenItKey];
-    } else if (timeIntervalSinceSetRemindMe > twoDays) {
-        [self showRateItAlert];
+    if (setRemindMeDate != nil && timeIntervalSinceSetRemindMe > twoDays) {
         [[NSUserDefaults standardUserDefaults] setObject:nil forKey:setRemindMeDateKey];
+        [self showRateItAlert];
+    } else if (setRemindMeDate == nil && timeIntervalSinceInstall > twoDays) {
+        [self showRateItAlert];
+    } else {
+        // It hasn't been two days since first run or "Remind Me Later" was tapped yet.
     }
 }
 
