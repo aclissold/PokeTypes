@@ -40,6 +40,9 @@
 /* Ice type */
 "Ice" = "こおり";
 
+/* App Store rating alert view message */
+"If you enjoy using Types, I’d really appreciate it if you left a rating or wrote me a review in the App Store! 😀" = "あなたはタイプを使用して楽しむ場合は、私は本当にあなたが評価を左またはApp Storeで私にレビューを書いた場合は、それを感謝します！😀";
+
 /* 4x effectiveness description */
 "It’s 4x effective!" = "こうかはばつぐんだ‼︎";
 
@@ -51,6 +54,12 @@
 
 /* 1/4x effectiveness description */
 "It’s ¼ effective…" = "効果は今一つ……";
+
+/* App Store rating alert view title */
+"Love Types?" = "愛のタイプ？";
+
+/* App Store rating alert view dismiss forever button */
+"No Thanks" = "結構です";
 
 /* Normal type */
 "Normal" = "ノーマルタ";
@@ -66,6 +75,12 @@
 
 /* Psychic type */
 "Psychic" = "エスパー";
+
+/* App Store rating alert view jump to App Store button */
+"Rate It!" = "それを評価します！";
+
+/* App Store rating alert view remind me button */
+"Remind Me Later" = "後で教えてください";
 
 /* Rock type */
 "Rock" = "いわ";

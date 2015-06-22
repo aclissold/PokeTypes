@@ -6,13 +6,15 @@
 //  Copyright (c) 2014 Andrew Clissold. All rights reserved.
 //
 
-#import "PokeBallFactory.h"
 #import "TypesViewController.h"
+
 #import "PickerRowView.h"
+#import "PokeBallFactory.h"
+#import "RateItAlertController.h"
 
 static const float kAlpha = 0.7;
 
-@interface TypesViewController() {
+@interface TypesViewController() <UIPickerViewDelegate, UIPickerViewDataSource> {
     CGFloat reds[18], greens[18], blues[18];
     int typeMatchups[18][18];
 }
@@ -27,18 +29,19 @@ static const float kAlpha = 0.7;
 @property (strong, nonatomic) NSArray *typesArray;
 @property (nonatomic) NSInteger lastSelectedRow;
 
+@property (nonatomic, strong) RateItAlertController *rateItAlertController;
+
 // For localization
 @property (strong, nonatomic) IBOutlet UIImageView *attackTypePill;
 @property (strong, nonatomic) IBOutlet UIImageView *opposingTypePill;
 
-@property (weak, nonatomic) IBOutlet UIToolbar *rateItView;
-
 @end
 
 @implementation TypesViewController
-
 const CGFloat kPickerConstraintSize = -10.0;
 const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
+
+#pragma mark - View Controller Lifecycle
 
 - (void)viewDidLoad
 {
@@ -57,20 +60,20 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
                        (id)[[UIColor colorWithRed:reds[bug] green:greens[bug] blue:blues[bug] alpha:kAlpha] CGColor], nil];
     [self.view.layer insertSublayer:self.gradient atIndex:0];
 
-    UIBarButtonItem *hideButton =
-    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop
-                                                  target:self
-                                                  action:@selector(hideRateItView)];
-    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    NSArray *items = @[space, hideButton];
-    self.rateItView.items = items;
-    self.rateItView.clipsToBounds = YES;
+    self.rateItAlertController = [[RateItAlertController alloc] init];
 
     NSString *attackTypePillImageName = NSLocalizedString(@"AttackTypePill", @"Attack type pill image name");
     NSString *opposingTypePillImageName = NSLocalizedString(@"OpposingTypePill", @"Opposing type pill image name");
     self.attackTypePill.image = [UIImage imageNamed:attackTypePillImageName];
     self.opposingTypePill.image = [UIImage imageNamed:opposingTypePillImageName];
 }
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.rateItAlertController showRateItAlertIfNecessary];
+}
+
+#pragma mark - Primary Logic
 
 - (void)updateEffectivenessLabelAndBackground {
     NSInteger i  = [self.topPickerView selectedRowInComponent:0];
@@ -161,69 +164,6 @@ float damageMultipliers[4] = {1.0, 0.0, 0.5, 2.0};
     [self updateEffectivenessLabelAndBackground];
 }
 
-#pragma mark - RateIt View Logic
-
-static NSString * const hasRatedKey = @"hasRated";
-static NSString * const installDateKey = @"installDate";
-static NSString * const hasSeenItKey = @"hasSeenIt";
-static NSString * const appStoreURL = @"itms-apps://itunes.apple.com/app/id784727885";
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self showRateItViewIfNecessary];
-}
-
-- (void)showRateItViewIfNecessary {
-    BOOL hasRated = [[NSUserDefaults standardUserDefaults] boolForKey:hasRatedKey];
-    if (hasRated) {
-        return;
-    }
-
-    NSDate *installDate = (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:installDateKey];
-    if (installDate == nil) {
-        [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:installDateKey];
-        return;
-    }
-
-    CGRect frame = self.rateItView.frame;
-    frame.origin.y = CGRectGetHeight(self.view.bounds);
-    self.rateItView.frame = frame;
-    self.rateItView.hidden = NO;
-
-    NSTimeInterval timeIntervalSinceInstall = [[NSDate date] timeIntervalSinceDate:installDate];
-    BOOL hasSeenIt = [[NSUserDefaults standardUserDefaults] boolForKey:hasSeenItKey];
-    if (timeIntervalSinceInstall > 60*60*24*10) { // 10 days
-        [self showRateItView];
-        // Just assume the user rated it to avoid bothering them anymore
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:hasRatedKey];
-    } else if (timeIntervalSinceInstall > 60*60*24*2 && !hasSeenIt) { // 2 days
-        [self showRateItView];
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:hasSeenItKey];
-    }
-}
-
-- (IBAction)rateIt {
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:hasRatedKey];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:appStoreURL]];
-    [self hideRateItView];
-}
-
-- (void)showRateItView {
-    [self animateRateItViewByY:-self.rateItView.frame.size.height];
-}
-
-- (void)hideRateItView {
-    [self animateRateItViewByY:self.rateItView.frame.size.height];
-}
-
-- (void)animateRateItViewByY:(CGFloat)y {
-    CGRect frame = self.rateItView.frame;
-    frame.origin.y += y;
-    [UIView animateWithDuration:0.25 delay:0.1 options:UIViewAnimationOptionCurveEaseIn animations:^{
-        self.rateItView.frame = frame;
-    } completion:NULL];
-}
-
 #pragma mark - UIPickerViewDelegate
 
 - (NSInteger) numberOfComponentsInPickerView:(UIPickerView *)pickerView {
@@ -241,8 +181,8 @@ static NSString * const appStoreURL = @"itms-apps://itunes.apple.com/app/id78472
     }
 }
 
-// The images are instantiated directly within this method as a workaround for a display bug
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
+    // The images are instantiated directly within this method as a workaround for a display bug.
     NSString *typeImageName = self.typesArray[row][0];
     UIImage *typeImage = [UIImage imageNamed:typeImageName];
 
