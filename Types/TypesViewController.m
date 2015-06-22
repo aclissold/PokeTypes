@@ -32,8 +32,10 @@ static const float kAlpha = 0.7;
 @property (nonatomic, strong) RateItAlertController *rateItAlertController;
 
 // For localization
-@property (strong, nonatomic) IBOutlet UIImageView *attackTypePill;
-@property (strong, nonatomic) IBOutlet UIImageView *opposingTypePill;
+@property (weak, nonatomic) IBOutlet UIImageView *attackTypePill;
+@property (weak, nonatomic) IBOutlet UIImageView *opposingTypePill;
+@property (weak, nonatomic) IBOutlet UIImageView *attackTypePillHorizontal;
+@property (weak, nonatomic) IBOutlet UIImageView *opposingTypePillHorizontal;
 
 @end
 
@@ -64,8 +66,12 @@ const CGFloat kOpposingTypeLabelConstraintSize = 30.0;
 
     NSString *attackTypePillImageName = NSLocalizedString(@"AttackTypePill", @"Attack type pill image name");
     NSString *opposingTypePillImageName = NSLocalizedString(@"OpposingTypePill", @"Opposing type pill image name");
+    NSString *attackTypePillHorizontalImageName = NSLocalizedString(@"AttackTypePillHorizontal", @"Horizontal attack type pill image name");
+    NSString *opposingTypePillHorizontalImageName = NSLocalizedString(@"OpposingTypePillHorizontal", @"Horizontal opposing type pill image name");
     self.attackTypePill.image = [UIImage imageNamed:attackTypePillImageName];
     self.opposingTypePill.image = [UIImage imageNamed:opposingTypePillImageName];
+    self.attackTypePillHorizontal.image = [UIImage imageNamed:attackTypePillHorizontalImageName];
+    self.opposingTypePillHorizontal.image = [UIImage imageNamed:opposingTypePillHorizontalImageName];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
