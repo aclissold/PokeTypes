@@ -43,7 +43,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="onf-wh-1c7">
-                                <rect key="frame" x="519" y="379" width="61" height="29"/>
+                                <rect key="frame" x="523" y="379" width="61" height="29"/>
                                 <segments>
                                     <segment title=" 1 "/>
                                     <segment title=" 2 "/>
@@ -108,15 +108,15 @@
                                 <exclude reference="D3b-Rw-sJT"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="9ZV-dz-jIG"/>
-                                <exclude reference="EXh-em-SYD"/>
                                 <exclude reference="fiZ-8g-Iec"/>
-                                <exclude reference="HfA-0N-heM"/>
-                                <exclude reference="0sB-Gg-IJJ"/>
                                 <exclude reference="slz-vH-Vr8"/>
                                 <exclude reference="wYA-nH-hm8"/>
                                 <exclude reference="Ktk-sN-Nuv"/>
+                                <exclude reference="0sB-Gg-IJJ"/>
                                 <exclude reference="fGL-ww-nHs"/>
+                                <exclude reference="HfA-0N-heM"/>
+                                <exclude reference="9ZV-dz-jIG"/>
+                                <exclude reference="EXh-em-SYD"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
@@ -129,33 +129,33 @@
                             <mask key="constraints">
                                 <exclude reference="4XD-wU-BRt"/>
                                 <exclude reference="DmP-p5-n7X"/>
-                                <exclude reference="lXz-Nk-7HB"/>
-                                <exclude reference="zyK-5l-dWI"/>
-                                <include reference="9ZV-dz-jIG"/>
-                                <include reference="EXh-em-SYD"/>
                                 <include reference="fiZ-8g-Iec"/>
                                 <exclude reference="yGI-hE-8YZ"/>
                                 <exclude reference="zuP-pQ-0j7"/>
-                                <include reference="HfA-0N-heM"/>
-                                <include reference="0sB-Gg-IJJ"/>
+                                <exclude reference="lXz-Nk-7HB"/>
+                                <exclude reference="zyK-5l-dWI"/>
                                 <exclude reference="U0L-fG-B2F"/>
                                 <exclude reference="hMc-8j-Dm0"/>
                                 <include reference="Ktk-sN-Nuv"/>
                                 <exclude reference="oeE-RO-8tb"/>
+                                <include reference="0sB-Gg-IJJ"/>
                                 <include reference="fGL-ww-nHs"/>
+                                <include reference="HfA-0N-heM"/>
+                                <include reference="9ZV-dz-jIG"/>
+                                <include reference="EXh-em-SYD"/>
                             </mask>
                         </variation>
                     </view>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="attackTypePickerView" destination="ICb-ge-1tG" id="dab-We-U60"/>
                         <outlet property="attackTypePill" destination="o2Q-mW-A9Z" id="Vl1-XR-FcC"/>
                         <outlet property="attackTypePillHorizontal" destination="Ikf-Dd-wc6" id="eq3-rr-9wG"/>
-                        <outlet property="bottomPickerView" destination="6NE-wv-XWU" id="Hga-1p-7Ay"/>
                         <outlet property="effectivenessLabel" destination="O5m-rH-ytA" id="9Yx-aY-tOU"/>
+                        <outlet property="opposingTypePickerView" destination="6NE-wv-XWU" id="eZO-Cb-VDp"/>
                         <outlet property="opposingTypePill" destination="AnZ-f0-ZGP" id="C13-EU-byp"/>
                         <outlet property="opposingTypePillHorizontal" destination="D3b-Rw-sJT" id="F9w-wX-3Mc"/>
                         <outlet property="segmentedControl" destination="onf-wh-1c7" id="imc-m9-vCI"/>
-                        <outlet property="topPickerView" destination="ICb-ge-1tG" id="ea3-Lh-p6a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
