@@ -18,4 +18,6 @@
 // Therefore, it's safe to call this method as frequently as necessary, such as in viewDidAppear:.
 - (void)showRateItAlertIfNecessary;
 
+- (nonnull instancetype)init;
+
 @end

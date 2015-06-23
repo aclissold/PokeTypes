@@ -9,6 +9,9 @@
 #import "RateItAlertController.h"
 
 @interface RateItAlertController () <UIAlertViewDelegate>
+
+@property (nonatomic, strong) NSString *currentVersion;
+
 @end
 
 @implementation RateItAlertController
@@ -21,14 +24,19 @@ static NSString * const appStoreURL = @"itms-apps://itunes.apple.com/app/id78472
 
 static const NSTimeInterval twoDays = 60*60*24*2;
 
+- (nonnull instancetype)init {
+    self = [super init];
+    self.currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
+    return self;
+}
+
 - (BOOL)didRateThisVersion {
     NSString *lastRatedVersion = [[NSUserDefaults standardUserDefaults] stringForKey:lastRatedVersionKey];
     if (lastRatedVersion == nil) {
         return NO;
     }
 
-    NSString *currentVersion = @"TODO"; // TODO
-    return [lastRatedVersion isEqualToString:currentVersion];
+    return [lastRatedVersion isEqualToString:self.currentVersion];
 }
 
 - (void)showRateItAlertIfNecessary {
@@ -84,13 +92,12 @@ static const NSTimeInterval twoDays = 60*60*24*2;
 #pragma mark - UIAlertViewDelegate
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    NSString *currentVersion = @"TODO"; // TODO
     switch (buttonIndex) {
         case 0:
             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:tappedNoThanksKey];
             break;
         case 1:
-            [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:lastRatedVersionKey];
+            [[NSUserDefaults standardUserDefaults] setObject:self.currentVersion forKey:lastRatedVersionKey];
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:appStoreURL]];
             break;
         case 2:
