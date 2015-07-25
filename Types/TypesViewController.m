@@ -8,7 +8,8 @@
 
 #import "TypesViewController.h"
 
-#import "PickerRowView.h"
+#import "Types-Swift.h"
+
 #import "PokeBallFactory.h"
 #import "RateItAlertController.h"
 

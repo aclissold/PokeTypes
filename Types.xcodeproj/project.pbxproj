@@ -13,10 +13,10 @@
 		224C29BA1807A4E800960D03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224C29B81807A4E800960D03 /* Main.storyboard */; };
 		224C29C01807A4E800960D03 /* TypesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224C29BF1807A4E800960D03 /* TypesViewController.m */; };
 		224C29C51807A4E800960D03 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 224C29C41807A4E800960D03 /* Images.xcassets */; };
-		229685A31842923F008F9D40 /* PickerRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229685A21842923F008F9D40 /* PickerRowView.m */; };
 		22ED7BFE1847DC7400CED121 /* PokeBallFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22ED7BFD1847DC7400CED121 /* PokeBallFactory.m */; };
 		B52E522B1B3279A700B58423 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B52E522D1B3279A700B58423 /* Localizable.strings */; };
 		B53FA65C1B63DFE100D12144 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FA65B1B63DFE100D12144 /* AppDelegate.swift */; };
+		B56D94631B63E2C400A13620 /* PickerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56D94621B63E2C400A13620 /* PickerRowView.swift */; };
 		B57D04421B3872E70098F5E7 /* RateItAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = B57D04411B3872E70098F5E7 /* RateItAlertController.m */; };
 		B5AD6ADB1B2FB2C1005DF9BD /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5AD6ADA1B2FB2C1005DF9BD /* Launch Screen.xib */; };
 /* End PBXBuildFile section */
@@ -32,8 +32,6 @@
 		224C29BE1807A4E800960D03 /* TypesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypesViewController.h; sourceTree = "<group>"; };
 		224C29BF1807A4E800960D03 /* TypesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TypesViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		224C29C41807A4E800960D03 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		229685A11842923F008F9D40 /* PickerRowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerRowView.h; sourceTree = "<group>"; };
-		229685A21842923F008F9D40 /* PickerRowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerRowView.m; sourceTree = "<group>"; };
 		22ED7BFC1847DC7400CED121 /* PokeBallFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PokeBallFactory.h; sourceTree = "<group>"; };
 		22ED7BFD1847DC7400CED121 /* PokeBallFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokeBallFactory.m; sourceTree = "<group>"; };
 		B52E52271B3277B700B58423 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
@@ -41,6 +39,7 @@
 		B52E522C1B3279A700B58423 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B53FA65A1B63DFE000D12144 /* Types-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Types-Bridging-Header.h"; sourceTree = "<group>"; };
 		B53FA65B1B63DFE100D12144 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B56D94621B63E2C400A13620 /* PickerRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerRowView.swift; sourceTree = "<group>"; };
 		B57D04401B3872E70098F5E7 /* RateItAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RateItAlertController.h; sourceTree = "<group>"; };
 		B57D04411B3872E70098F5E7 /* RateItAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RateItAlertController.m; sourceTree = "<group>"; };
 		B5AD6ADA1B2FB2C1005DF9BD /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
@@ -92,8 +91,7 @@
 				224C29B81807A4E800960D03 /* Main.storyboard */,
 				22ED7BFC1847DC7400CED121 /* PokeBallFactory.h */,
 				22ED7BFD1847DC7400CED121 /* PokeBallFactory.m */,
-				229685A11842923F008F9D40 /* PickerRowView.h */,
-				229685A21842923F008F9D40 /* PickerRowView.m */,
+				B56D94621B63E2C400A13620 /* PickerRowView.swift */,
 				B57D04401B3872E70098F5E7 /* RateItAlertController.h */,
 				B57D04411B3872E70098F5E7 /* RateItAlertController.m */,
 				224C29BE1807A4E800960D03 /* TypesViewController.h */,
@@ -190,11 +188,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				229685A31842923F008F9D40 /* PickerRowView.m in Sources */,
 				B57D04421B3872E70098F5E7 /* RateItAlertController.m in Sources */,
 				224C29C01807A4E800960D03 /* TypesViewController.m in Sources */,
 				B53FA65C1B63DFE100D12144 /* AppDelegate.swift in Sources */,
 				22ED7BFE1847DC7400CED121 /* PokeBallFactory.m in Sources */,
+				B56D94631B63E2C400A13620 /* PickerRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
