@@ -10,14 +10,13 @@
 		224C29A71807A4E800960D03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224C29A61807A4E800960D03 /* Foundation.framework */; };
 		224C29AB1807A4E800960D03 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224C29AA1807A4E800960D03 /* UIKit.framework */; };
 		224C29B11807A4E800960D03 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 224C29AF1807A4E800960D03 /* InfoPlist.strings */; };
-		224C29B31807A4E800960D03 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 224C29B21807A4E800960D03 /* main.m */; };
-		224C29B71807A4E800960D03 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 224C29B61807A4E800960D03 /* AppDelegate.m */; };
 		224C29BA1807A4E800960D03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224C29B81807A4E800960D03 /* Main.storyboard */; };
 		224C29C01807A4E800960D03 /* TypesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224C29BF1807A4E800960D03 /* TypesViewController.m */; };
 		224C29C51807A4E800960D03 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 224C29C41807A4E800960D03 /* Images.xcassets */; };
 		229685A31842923F008F9D40 /* PickerRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229685A21842923F008F9D40 /* PickerRowView.m */; };
 		22ED7BFE1847DC7400CED121 /* PokeBallFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22ED7BFD1847DC7400CED121 /* PokeBallFactory.m */; };
 		B52E522B1B3279A700B58423 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B52E522D1B3279A700B58423 /* Localizable.strings */; };
+		B53FA65C1B63DFE100D12144 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FA65B1B63DFE100D12144 /* AppDelegate.swift */; };
 		B57D04421B3872E70098F5E7 /* RateItAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = B57D04411B3872E70098F5E7 /* RateItAlertController.m */; };
 		B5AD6ADB1B2FB2C1005DF9BD /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5AD6ADA1B2FB2C1005DF9BD /* Launch Screen.xib */; };
 /* End PBXBuildFile section */
@@ -28,10 +27,7 @@
 		224C29AA1807A4E800960D03 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		224C29AE1807A4E800960D03 /* Types-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Types-Info.plist"; sourceTree = "<group>"; };
 		224C29B01807A4E800960D03 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		224C29B21807A4E800960D03 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		224C29B41807A4E800960D03 /* Types-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Types-Prefix.pch"; sourceTree = "<group>"; };
-		224C29B51807A4E800960D03 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		224C29B61807A4E800960D03 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		224C29B91807A4E800960D03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		224C29BE1807A4E800960D03 /* TypesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypesViewController.h; sourceTree = "<group>"; };
 		224C29BF1807A4E800960D03 /* TypesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TypesViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -43,6 +39,8 @@
 		B52E52271B3277B700B58423 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		B52E52281B3277B700B58423 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B52E522C1B3279A700B58423 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B53FA65A1B63DFE000D12144 /* Types-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Types-Bridging-Header.h"; sourceTree = "<group>"; };
+		B53FA65B1B63DFE100D12144 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B57D04401B3872E70098F5E7 /* RateItAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RateItAlertController.h; sourceTree = "<group>"; };
 		B57D04411B3872E70098F5E7 /* RateItAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RateItAlertController.m; sourceTree = "<group>"; };
 		B5AD6ADA1B2FB2C1005DF9BD /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
@@ -90,8 +88,7 @@
 		224C29AC1807A4E800960D03 /* Types */ = {
 			isa = PBXGroup;
 			children = (
-				224C29B51807A4E800960D03 /* AppDelegate.h */,
-				224C29B61807A4E800960D03 /* AppDelegate.m */,
+				B53FA65B1B63DFE100D12144 /* AppDelegate.swift */,
 				224C29B81807A4E800960D03 /* Main.storyboard */,
 				22ED7BFC1847DC7400CED121 /* PokeBallFactory.h */,
 				22ED7BFD1847DC7400CED121 /* PokeBallFactory.m */,
@@ -104,6 +101,7 @@
 				224C29C41807A4E800960D03 /* Images.xcassets */,
 				B5AD6ADA1B2FB2C1005DF9BD /* Launch Screen.xib */,
 				224C29AD1807A4E800960D03 /* Supporting Files */,
+				B53FA65A1B63DFE000D12144 /* Types-Bridging-Header.h */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -114,7 +112,6 @@
 				B52E522D1B3279A700B58423 /* Localizable.strings */,
 				224C29AE1807A4E800960D03 /* Types-Info.plist */,
 				224C29AF1807A4E800960D03 /* InfoPlist.strings */,
-				224C29B21807A4E800960D03 /* main.m */,
 				224C29B41807A4E800960D03 /* Types-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -195,10 +192,9 @@
 			files = (
 				229685A31842923F008F9D40 /* PickerRowView.m in Sources */,
 				B57D04421B3872E70098F5E7 /* RateItAlertController.m in Sources */,
-				224C29B71807A4E800960D03 /* AppDelegate.m in Sources */,
 				224C29C01807A4E800960D03 /* TypesViewController.m in Sources */,
+				B53FA65C1B63DFE100D12144 /* AppDelegate.swift in Sources */,
 				22ED7BFE1847DC7400CED121 /* PokeBallFactory.m in Sources */,
-				224C29B31807A4E800960D03 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,13 +307,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Types/Types-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "Types/Types-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Types;
+				SWIFT_OBJC_BRIDGING_HEADER = "Types/Types-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WARNING_CFLAGS = "-Wall";
 				WRAPPER_EXTENSION = app;
@@ -329,13 +329,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Types/Types-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "Types/Types-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Types;
+				SWIFT_OBJC_BRIDGING_HEADER = "Types/Types-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WARNING_CFLAGS = "-Wall";
 				WRAPPER_EXTENSION = app;
